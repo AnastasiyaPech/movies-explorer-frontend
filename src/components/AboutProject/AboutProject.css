@@ -1,0 +1,128 @@
+.project__container {
+    max-width: 1280px;
+    max-height: 608px;
+    margin: 0;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.project__text {
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 22px;
+    line-height: normal;
+    margin: 0;
+    text-align: start;
+    margin-top: 110px;
+    margin-bottom: 23px;
+    max-width: 600px;
+}
+
+.table {
+    max-height: 160px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 110px;
+
+}
+
+.table__column {
+    max-width: 550px;
+    margin: 0;
+    margin-right: 40px;
+
+}
+
+.table__column:last-child {
+    margin-right: 0;
+}
+
+.table__heading {
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: normal;
+    margin: 0;
+    margin-top: 70px;
+    margin-bottom: 26px;
+}
+
+.table__text {
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.deadline__table {
+    max-width: 1140px;
+    max-height: 36px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.deadline__text-black {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    margin: 0;
+    padding: 9px 90px;
+    text-align: center;
+    max-width: 228px;
+}
+
+.deadline__text {
+    background-color: #f2f2f2;
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    padding: 9px 430px;
+    margin: 0;
+    text-align: center;
+    max-width: 912px;
+}
+
+.stage__table {
+    max-width: 1140px;
+    max-height: 36px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: flex-end;
+}
+
+.deadline__column-back {
+    color: #a0a0a0;
+    font-family: "Inter-Medium";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 9px 88px;
+    text-align: center;
+    max-width: 228px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.deadline__column {
+    color: #a0a0a0;
+    font-family: "Inter-Medium";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 9px 430px;
+    margin: 0;
+    text-align: center;
+    max-width: 912px;
+    white-space: nowrap;
+}
