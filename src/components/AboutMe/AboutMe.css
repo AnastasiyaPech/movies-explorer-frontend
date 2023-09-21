@@ -1,0 +1,73 @@
+.aboutme__container {
+    max-width: 1280px;
+    max-height: 608px;
+    margin: 0;
+    margin-left: 70px;
+    margin-right: 70px;
+    box-sizing: border-box;
+}
+
+.aboutme__text {
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 22px;
+    line-height: normal;
+    margin: 0;
+    text-align: start;
+    margin-top: 110px;
+    margin-bottom: 23px;
+}
+
+.content__container {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    border-top: 1px solid;
+    box-sizing: border-box;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+.list__heading {
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    margin: 0;
+    text-align: start;
+    margin-top: 66px;
+    margin-bottom: 18px;
+}
+
+.list__subtitle {
+    font-family: "Inter-Medium";
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+    text-align: start;
+    margin-bottom: 26px;
+}
+
+.list__text {
+    font-family: "Inter-Regular";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+    text-align: start;
+    margin-bottom: 99px;
+}
+
+.aboutme__foto {
+    margin-top: 66px;
+    object-fit: cover;
+    box-sizing: border-box;
+    max-width: 270px;
+   
+}
