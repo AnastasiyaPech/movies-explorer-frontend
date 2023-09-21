@@ -4,24 +4,19 @@ import Form from '../Form/Form';
 import logo from '../../images/logo.svg'
 
 
-function Register() {
+function Login() {
     return (
         <Form
             logo={logo}
-            title="Добро пожаловать!"
-            buttonTitle="Зарегистрироваться"
+            title="Рады видеть!"
+            buttonTitle="Войти"
             textReg={
                 <div className="form__register-container">
-                    <p className="form__register-text">Уже зарегистрированы?</p>
-                    <Link to="login" className="form__register-link">Войти</Link>
+                    <p className="form__register-text">Ещё не зарегистрированы?</p>
+                    <Link to="login" className="form__register-link">Регистрация</Link>
                 </div>
             }>
 
-            <div className="form__input-container">
-                <p className="form__input-text">Имя</p>
-                <input type="email" required className="form__input" name="userUrl"
-                    placeholder="Имя" minLength="2" maxLength="40" />
-            </div>
             <div className="form__input-container">
                 <p className="form__input-text">E-mail</p>
                 <input type="email" required className="form__input" name="userUrl"
@@ -37,4 +32,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default Login;
