@@ -1,6 +1,7 @@
 .portfolio__container {
     max-width: 1140px;
     margin: 100px 70px 125px;
+    box-sizing: border-box;
 }
 
 .portfolio__title {
@@ -16,6 +17,18 @@
 .portfolio__links {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.link__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* max-width: 1140px; */
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid #E8E8E8;
 }
 
 .portfolio__link {
@@ -24,10 +37,12 @@
     font-size: 30px;
     line-height: 50px;
     margin: 0;
+    padding: 0;
     text-decoration: none;
     color: #000000;
-    border-bottom: 1px solid #E8E8E8;
-    padding-right: 100px;
+    
+    max-width: 880px;
+
 }
 
 .portfolio__link:hover {
@@ -37,6 +52,7 @@
 .portfolio__logo {
     object-fit: cover;
     box-sizing: border-box;
-    max-height: 60px;
-  max-width: 29px;
+    max-height: 16px;
+    max-width: 16px;
+    /* margin-left: 231px; */
 }
