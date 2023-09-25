@@ -10,10 +10,6 @@ function Header() {
             <div className={`header__container ${location ==="/" ? "header__container_pink" : ''}`}>
             <Link to="/" className="header__link"><img src={logo} className="header__logo" alt="логотип" /></Link>
             <div className="header__navigation">
-                {/* {loggedIn && <p className="header__text">{email}</p>}
-                {loggedIn && <Link to="/sign-in" className="header__link" onClick={logOut}>Выйти</Link>}
-                {location ==="/signin" && <Link to="/sign-up" className="header__link">Регистрация</Link>}
-                {location ==="/signup" && <Link to="/sign-in" className="header__link">Войти</Link>} */}
                 {location ==="/" &&  <NavigationHeader />}
                 {location ==="/movies" &&  <NavigationHeader />}
                 {location ==="/saved-movies" &&  <NavigationHeader />}
