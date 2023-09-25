@@ -1,8 +1,11 @@
 import React from 'react';
+import Header from '../Header/Header';
 
 
 function Profile() {
     return (
+        <>
+         <Header />
         <div className="profile__form">
         <h2 className="profile__title">Привет, Виталий!</h2>
         <form className="profile__container" name="registration__form" noValidate>
@@ -18,6 +21,7 @@ function Profile() {
             <button type="submit" className="profile__button-exit">Выйти из аккаунта</button>
         </form>
     </div>
+    </>
     );
 }
 

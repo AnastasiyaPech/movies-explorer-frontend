@@ -17,3 +17,6 @@
 @import url(./components/SearchForm/SearchForm.css);
 @import url(./components/FilterCheckbox/FilterCheckbox.css);
 @import url(./components/Preloader/Preloader.css);
+@import url(./components/Header/Header.css);
+@import url(./components/NavigationHeader/NavigationHeader.css);
+@import url(./components/SavedMovies/SavedMovies.css);

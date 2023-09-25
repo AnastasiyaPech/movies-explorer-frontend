@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../Footer/Footer';
-// import Header from './Header';
+import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm'
 // import Preloader from '../Preloader/Preloader';
 
@@ -9,7 +9,7 @@ import SearchForm from '../SearchForm/SearchForm'
 function Movies() {
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <div className="movies__container">
                 {/* <Preloader /> */}
                 <SearchForm />
