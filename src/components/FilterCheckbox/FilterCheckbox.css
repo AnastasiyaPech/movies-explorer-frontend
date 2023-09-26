@@ -1,16 +1,13 @@
 .checkbox__container {
     display: block;
-    /* display: flex; */
-    max-width: 168px;
-    /* align-items: center; */
+    max-width: 227px;
     box-sizing: border-box;
-    padding-left: 20px;
+    padding-left: 10px;
    
 }
 
 .checkbox__input {
     position: absolute;
-    /* -webkit-appearance: none; */
     display: none;
     width: 1px;
     height: 1px;
@@ -26,24 +23,10 @@
     background-image: url(../../images/smalltumboff.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    /* margin-right: 15px; */
     vertical-align: sub;
     margin-left: -10px;
     box-sizing: border-box;
-    /* margin-top: -10px; */
 }
-
-/* .checkbox__custom::before {
-    position: absolute;
-    content: '';
-    display: inline-block;
-    width: 36px;
-    height: 20px;
-    background-image: url(../../images/smalltumb.svg);
-    margin-right: 15px;
-    background-size: contain;
-    background-repeat: no-repeat;
-} */
 
 .checkbox__input:checked + .checkbox__custom {
     background-image: url(../../images/smalltumb.svg);
@@ -58,8 +41,8 @@
     font-size: 13px;
     font-weight: 400;
     margin: 0;
-    margin-top: 2px;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
     box-sizing: border-box;
 }

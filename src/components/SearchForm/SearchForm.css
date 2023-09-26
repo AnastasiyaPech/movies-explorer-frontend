@@ -2,20 +2,17 @@
     display: flex;
     box-sizing: border-box;
     max-height: 72px;
-    /* max-width: 1140px; */
     width: 100%;
     margin: 0;
     justify-content: space-between;
-    border-right: 1px #CBCBCB solid;
+    /* border-right: 1px #CBCBCB solid; */
+    align-items: center;
 
 }
 
 .search__input {
-    background-image: url(../../images/icon_search.svg);
-    background-repeat: no-repeat;
     width: 100%;
     border: none;
-    border-radius: 9px;
     padding: 0;
 }
 
@@ -30,9 +27,26 @@
     width: 59px;
     cursor: pointer;
     padding: 0;
-    margin-right: 19px;
 }
 
 .search__button:hover {
     opacity: 0.8;
+}
+
+.search__icon {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    margin: 19px 10px 19px 19px;
+    padding: 0;
+}
+
+.search__stick {
+    width: 40px;
+    height: 1px;
+    transform: rotate(90deg);
+    color: #CBCBCB;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
 }
