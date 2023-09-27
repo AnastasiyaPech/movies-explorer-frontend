@@ -1,21 +1,19 @@
 import React from 'react';
 
-function Card({ name, link, owner, likes, id, onClick, onCardLike, onCardDelete }) {
+function MoviesCard ({ name, link, duration }) {
   
     return (
-        <li className="list__description">
-            <div className="list__place">
-                <img className="list__image" alt={name} src={link} onClick={() => onClick({ link: link, name: name })} />
+        <div className="moviescard__container">
+            <div className="moviescard__place">
+                <img className="moviescard__image" alt={name} src={link}  />
+                <button type="button" className="moviescard__button-save">Сохранить</button>
             </div>
             <div className="list__container">
-                <h2 className="list__text">{name}</h2>
-                <div className="list__containerLikes">
-                    <button type="button" className="list__button"></button>
-                    <p className="list__countLikes">{likes.length}</p>
-                </div>
+                <p className="list__text">{name}</p>
+                    <p className="list__duration">{duration}</p>
             </div>
-        </li>
+        </div>
     );
 }
 
-export default Card;
+export default MoviesCard;

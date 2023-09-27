@@ -1,6 +1,7 @@
 import React from 'react';
 import icon from '../../images/icon_search.svg'
 import stick from '../../images/input__stroke.svg'
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm() {
     return (
@@ -11,6 +12,7 @@ function SearchForm() {
                 placeholder="Фильм"/>
             <button type="submit" className="search__button">Найти</button>
             <img src={stick} className="search__stick" alt="иконка разделения" />
+            <FilterCheckbox/>
         </form>
 
     );

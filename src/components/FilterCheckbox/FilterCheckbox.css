@@ -1,9 +1,10 @@
 .checkbox__container {
-    display: block;
+    /* display: block; */
+    position: relative;
     max-width: 227px;
     box-sizing: border-box;
     padding-left: 10px;
-   
+
 }
 
 .checkbox__input {
@@ -28,7 +29,7 @@
     box-sizing: border-box;
 }
 
-.checkbox__input:checked + .checkbox__custom {
+.checkbox__input:checked+.checkbox__custom {
     background-image: url(../../images/smalltumb.svg);
     width: 36px;
     height: 20px;
