@@ -1,4 +1,4 @@
-const initialMoviies = [
+const initialMovies = [
     {
         country: 'США',
         director: 'Фрэнк Дарабонт',
@@ -80,4 +80,4 @@ const initialMoviies = [
 ]
 
 
-export default initialMoviies;
+export default initialMovies;

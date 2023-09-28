@@ -47,8 +47,27 @@
 
 }
 
+.moviescard__button-save_saved:hover {
+    opacity: 0.8;
+}
+
 .moviescard__place:hover .moviescard__button-save {
     opacity: 1;
+}
+
+/* удаление фильма */
+.moviescard__button-delete {
+    background: url("../../images/icon__deletemovie.svg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 21px;
+    height: 21px;
+    font-size: 0;
+    box-sizing: border-box;
+}
+
+.moviescard__button-delete:hover {
+    opacity: 0.8;
 }
 
 .moviescard__image {
