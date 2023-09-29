@@ -12,9 +12,9 @@
     object-fit: cover;
 }
 
-.header__link {
+/* .header__link {
     max-width: 38px;
-}
+} */
 
 .header__container {
     display: flex;
@@ -26,6 +26,8 @@
 }
 
 .header__navigation {
+    display: flex;
+    box-sizing: border-box;
     max-width: 380px;
 }
 

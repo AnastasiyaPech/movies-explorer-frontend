@@ -7,7 +7,7 @@ function Header() {
 
     const location = useLocation().pathname;
 
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(true);
     function handleSetLoggedIn() {
         setLoggedIn(!loggedIn);
     }
@@ -16,16 +16,14 @@ function Header() {
     return (
         <header className="header">
             <div className={`header__container ${location === "/" ? "header__container_pink" : ''}`}>
-                <Link to="/" className="header__link">
                     <img src={logo} className="header__logo" alt="логотип" onClick={handleSetLoggedIn} />
-                </Link>
                 {loggedIn ? (
                     <div className="header__navigation">
                         {location === "/" && <NavigationHeader />}
                         {location === "/movies" && <NavigationHeader />}
                         {location === "/saved-movies" && <NavigationHeader />}
                         {location === "/profile" && <NavigationHeader />}
-                    </div>
+                     </div>
                 ) : (
                     < nav className="navigation__links">
                     <Link to="/signup" className="navigation__link">Регистрация</Link>

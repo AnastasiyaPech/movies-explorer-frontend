@@ -16,7 +16,7 @@
 }
 
 .navigation__link_main {
-   visibility: hidden;
+    visibility: hidden;
 }
 
 .navigation__link:last-child {
@@ -70,11 +70,6 @@
 
 /* бургер меню */
 
-.burgermenu__container {
-    position: relative;
-}
-
-
 .button__burger-menu {
     background: url("../../images/icon__burger-menu.svg");
     background-repeat: no-repeat;
@@ -95,6 +90,7 @@
 .button__burger-menu_close {
     background: url("../../images/icon__burgerclose.svg");
     background-repeat: no-repeat;
+
 }
 
 .button__burger-menu:hover {
@@ -105,15 +101,21 @@
 
     .button__burger-menu {
         display: block;
-        position: absolute;
+        position: relative;
         right: 30;
         top: 15;
         z-index: 10;
         margin-left: auto;
     }
 
+    .button__burger-menu_close {
+        position: relative;
+        z-index: 10;
+    }
+
     .navigation__link_main {
         visibility: visible;
+        margin-top: 159px;
     }
 
     .navigation__links {
@@ -121,21 +123,38 @@
         flex-direction: column;
         justify-content: center;
         position: fixed;
-        left: -400px;
-        right: 0;
+        left: -550px;
         top: 0;
         bottom: 0;
         width: 520px;
         background-color: #FFF;
         height: 100%;
         z-index: 10;
-        transition: transform 0.3s linear;
+        transition: transform 0.5s ease-out;
+    }
 
+    .navigation__blur {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .navigation__blur.active {
+        visibility: visible;
+        opacity: 1;
     }
 
     .navigation__links.active {
         transform: translateX(100%);
-        left:0;
+        left: 100px;
+
     }
 
     .navigation__link {
@@ -145,6 +164,11 @@
 
     .navigation__link_container {
         margin-top: 300px;
+    }
+
+    .navigation__button {
+        background-image: url(../../images/icon_black_icon-main.svg);
+        background-color: #F9F9F9;
     }
 
 }
