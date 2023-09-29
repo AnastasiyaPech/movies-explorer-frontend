@@ -10,7 +10,10 @@
     height: 38px;
     cursor: pointer;
     object-fit: cover;
-    margin-right: 722px;
+}
+
+.header__link {
+    max-width: 38px;
 }
 
 .header__container {
@@ -19,6 +22,7 @@
     width: 100%;
     padding: 18px 70px;
     align-items: center;
+    justify-content: space-between;
 }
 
 .header__navigation {
@@ -26,10 +30,23 @@
 }
 
 
-
-
 .header__container_pink {
     background-color: #f3c1f8;
+}
+
+.navigation__button-black {
+    border-radius: 3px;
+    background: #000;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    height: 32px;
+    width: 76px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 /* @media screen and (max-width: 768px) {

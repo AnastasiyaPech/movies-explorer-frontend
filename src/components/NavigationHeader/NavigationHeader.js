@@ -11,9 +11,11 @@ function NavigationHeader() {
         setOpen(!isOpen);
     }
 
+    
+
     return (
         <>
-            < nav className= {`navigation__links ${isOpen ? "active" : ""}`}>
+            < nav className={`navigation__links ${isOpen ? "active" : ""}`}>
                 <Link to="/movies" className="navigation__link navigation__link_main">Главная</Link>
                 <Link to="/movies" className="navigation__link">Фильмы</Link>
                 <Link to="/saved-movies" className="navigation__link">Сохранённые фильмы</Link>
