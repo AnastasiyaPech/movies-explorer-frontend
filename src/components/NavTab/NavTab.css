@@ -21,14 +21,14 @@
 .navtab__link {
     text-decoration: none;
     color: #ffffff;
-    font-family: "Inter-Medium";
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
     margin: 0;
-    margin-right: 20px;
+    margin-right: 40px;
     white-space: nowrap;
     box-sizing: border-box;
+    text-decoration-line: underline;
 }
 
 

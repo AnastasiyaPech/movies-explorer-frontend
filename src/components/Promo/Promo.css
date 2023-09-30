@@ -6,16 +6,17 @@
     background-repeat: no-repeat;
     box-sizing: border-box;
     background-position: center;
+    background-size: 320px 320px;
+    object-fit: cover;
 }
 
 .landing__text {
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
-    font-family: "Inter-Regular";
     text-align: center;
     box-sizing: border-box;
-    max-width: 730px;
+    max-width: 705px;
     margin: 184px auto 224px;
    
 }

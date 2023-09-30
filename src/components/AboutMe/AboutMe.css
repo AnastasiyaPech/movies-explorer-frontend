@@ -8,7 +8,6 @@
 }
 
 .aboutme__text {
-    font-family: "Inter-Regular";
     font-weight: 400;
     font-size: 22px;
     line-height: normal;
@@ -34,7 +33,6 @@
 }
 
 .list__heading {
-    font-family: "Inter-Regular";
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
@@ -45,7 +43,6 @@
 }
 
 .list__subtitle {
-    font-family: "Inter-Medium";
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
@@ -55,7 +52,6 @@
 }
 
 .list__text {
-    font-family: "Inter-Regular";
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;

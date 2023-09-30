@@ -9,7 +9,6 @@
 }
 
 .techs__text {
-    font-family: "Inter-Regular";
     font-weight: 400;
     font-size: 22px;
     line-height: normal;
@@ -25,7 +24,6 @@
 .techs__title {
     text-align: center;
     margin: 90px 340px 26px;
-    font-family: "Inter-Regular";
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
@@ -35,13 +33,11 @@
 .techs__subtitle {
     text-align: center;
     margin: 0;
-    font-family: "Inter-Regular";
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    max-width: 460px;
-    margin-right: 410px;
-    margin-left: 410px;
+    max-width: 500px;
+    margin: auto;
 }
 
 .techs__table {
@@ -56,6 +52,9 @@
 }
 
 .techs__column {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     max-height: 60px;
     width: 90px;
     margin: 0;
@@ -63,8 +62,8 @@
     background-color: #e7e7e7;
     border-radius: 10px;
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 23px;
+    padding-bottom: 17px;
 }
 
 .techs__column:last-child {
