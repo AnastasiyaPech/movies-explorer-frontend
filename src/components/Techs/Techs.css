@@ -46,7 +46,7 @@
     box-sizing: border-box;
     flex-direction: row;
     align-items: center;
-    margin: 100px 295px 100px;
+    margin: 100px auto 100px;
     max-width: 700px;
     padding: 0;
 }
@@ -64,8 +64,38 @@
     text-align: center;
     padding-top: 23px;
     padding-bottom: 17px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .techs__column:last-child {
     margin-right: 0;
+}
+
+@media screen and (max-width: 1020px) {
+    .techs__title {
+        margin: 80px auto 22px;
+    }
+    .techs__subtitle {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .techs__column {
+        font-size: 12px; 
+        max-width: 85px; 
+    }
+    .techs__table {
+        margin: 83px auto 90px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .techs__text {
+        margin-top: 90px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    
 }

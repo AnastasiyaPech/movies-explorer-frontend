@@ -18,6 +18,7 @@ function Techs() {
                     <li className="techs__column">Express.js</li>
                     <li className="techs__column">mongoDB</li>
                 </ul>
+                
         </div>
     );
 }

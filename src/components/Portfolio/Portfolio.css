@@ -29,6 +29,10 @@
     border-bottom: 1px solid #E8E8E8;
     margin-bottom: 40px;
 }
+.link__container:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
 
 .portfolio__link {
     font-weight: 400;
@@ -39,7 +43,6 @@
     text-decoration: none;
     color: #000000;
     max-width: 880px;
-
 }
 
 .portfolio__link:hover {
@@ -51,5 +54,17 @@
     box-sizing: border-box;
     max-height: 16px;
     max-width: 16px;
+}
 
+@media screen and (max-width: 1020px) {
+    .portfolio__container {
+        margin: 90px 50px 90px;
+        box-sizing: border-box;
+    }
+    .portfolio__link {
+        font-size: 28px;
+    }
+    .link__container {
+        margin-bottom: 35px;
+    }
 }
