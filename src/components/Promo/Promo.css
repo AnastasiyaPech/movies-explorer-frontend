@@ -18,5 +18,16 @@
     box-sizing: border-box;
     max-width: 705px;
     margin: 184px auto 224px;
-   
+
+}
+
+@media screen and (max-width: 800px) {
+    .landing {
+        max-height: 784px;
+    }
+
+    .landing__text {
+        margin: 326px auto 342px;
+    }
+
 }

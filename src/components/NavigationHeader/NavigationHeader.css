@@ -99,7 +99,7 @@
     opacity: 0.8;
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 800px) {
 
     .button__burger-menu {
         display: block;

@@ -17,14 +17,16 @@ function AboutProject() {
                         которые нужно было соблюдать, чтобы успешно защититься.</p>
                 </li>
             </ul>
-            <div className="deadline__table">
-                    <p className="deadline__text-black">1 неделя</p>
-                    <p className="deadline__text">4 недели</p>
-            </div>
-            <div className="stage__table">
-                <p className="deadline__column-back">Back-end</p>
-                <p className="deadline__column">Front-end</p>
-            </div>
+            <ul className="deadline__table">
+                <li className="deadline__column">
+                    <p className="deadline__text deadline__text_black">1 неделя</p>
+                    <p className="deadline__text">Back-end</p>
+                </li>
+                <li className="deadline__column deadline__column_right">
+                    <p className="deadline__text deadline__text_grey">4 недели</p>
+                    <p className="deadline__text deadline__text_shadow">Front-end</p>
+                </li>
+            </ul>
         </div>
     );
 }
