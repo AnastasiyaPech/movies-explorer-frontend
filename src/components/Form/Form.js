@@ -12,6 +12,7 @@ function Form({ logo, title, textReg, children, buttonTitle, onSubmit }) {
             </form>
             {textReg}
         </div>
+        
     );
 }
 

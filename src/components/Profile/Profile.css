@@ -8,7 +8,6 @@
 }
 
 .profile__title {
-    font-family: "Inter-Medium";
     font-weight: 500;
     font-size: 24px;
     line-height: normal;
@@ -32,7 +31,6 @@
 }
 
 .profile__input {
-    font-family: "Inter-Regular";
     color: #000;
     font-weight: 400;
     font-size: 11px;

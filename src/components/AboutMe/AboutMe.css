@@ -39,7 +39,7 @@
     margin: 0;
     text-align: start;
     margin-top: 66px;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
 .list__subtitle {
@@ -51,7 +51,7 @@
     margin-bottom: 26px;
 }
 
-.list__text {
+.list__paragrath {
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;

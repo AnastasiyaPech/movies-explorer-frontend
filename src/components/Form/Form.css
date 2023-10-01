@@ -15,7 +15,6 @@
 }
 
 .form__text {
-    font-family: "Inter-Medium";
     font-weight: 500;
     font-size: 24px;
     line-height: normal;
@@ -45,7 +44,7 @@
     border: none;
     border-radius: 3px;
     margin-bottom: 16px;
-    margin-top: 91px;
+    margin-top: 65px;
     padding: 0;
 }
 
