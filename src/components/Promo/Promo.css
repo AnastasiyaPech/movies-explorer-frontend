@@ -31,3 +31,26 @@
     }
 
 }
+
+@media screen and (max-width: 610px) {
+    .landing {
+        background-size: 248px 248px;
+    }
+
+    .landing__text {
+        font-size: 40px;
+        line-height: 41px;
+        margin: 310px auto 330px;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+   
+    .landing__text {
+        font-size: 31px;
+        line-height: 39px;
+        margin: 207px auto 246px;
+    }
+
+}

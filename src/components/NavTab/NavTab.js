@@ -11,6 +11,7 @@ function NavTab() {
             <Link to="/" className="navtab__link">Студент</Link>
             </nav>
         </div>
+        
     );
 }
 

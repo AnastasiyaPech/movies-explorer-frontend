@@ -41,3 +41,14 @@
     opacity: 0.7;
 
 }
+
+@media screen and (max-width: 360px) {
+    .navtab__link {
+        margin-right: 24px;
+        font-size: 11px;
+    }
+    .navtab__link:last-child {
+        margin-right: 0;
+    }
+
+}
