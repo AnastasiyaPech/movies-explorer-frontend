@@ -19,6 +19,7 @@ function AboutMe() {
                 </div>
                 <img src={foto} className="aboutme__foto" alt="фото Виталия" />
             </div>
+            
         </div>
     );
 }

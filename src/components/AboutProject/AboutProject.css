@@ -73,7 +73,7 @@
 .deadline__column {
     width: 20%;
     box-sizing: border-box;
-    
+
 }
 
 .deadline__text {
@@ -98,9 +98,8 @@
 
 .deadline__text_shadow {
     color: #A0A0A0;
-    font-weight: 500;
-    line-height: 17px;
 }
+
 .deadline__column_right {
     width: 80%;
 }
@@ -110,6 +109,7 @@
         margin-left: 50px;
         margin-right: 50px;
     }
+
     .project__text {
         margin-top: 90px;
     }
@@ -117,16 +117,95 @@
     .table__heading {
         margin-bottom: 20px;
     }
+
     .table {
         margin-bottom: 130px;
     }
+
     .deadline__table {
         margin-bottom: 85px;
     }
+
+    .table__text {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .project__container {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .table__column {
+        margin-right: 20px;
+
+    }
+
+    .table__heading {
+        font-size: 18px;
+        margin-top: 50px;
+    }
+
     .table__text {
         font-size: 12px;
         line-height: 18px;
     }
 
+    .table {
+        margin-bottom: 100px;
+    }
+
+    .deadline__column {
+        width: 30%;
+    }
+
+    .deadline__column_right {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project__container {
+        max-height: none;
+    }
+    .project__text {
+        font-size: 18px;
+        margin-top: 70px;
+        margin-bottom: 28px;
+    }
+
+    .table {
+        flex-direction: column;
+        max-height: none;
+        margin-bottom: 60px;
+    }
+
+    .table__column {
+        margin-right: 0;
+    }
+
+    .table__heading {
+        margin-top: 60px;
+        margin-bottom: 16px;
+    }
+    .table__text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .deadline__text {
+        font-size: 11px;
+    }
+    .deadline__table {
+        margin-bottom: 70px;
+    }
+    .deadline__column {
+        width: 35%;
+    }
+
+    .deadline__column_right {
+        width: 65%;
+    }
 
 }

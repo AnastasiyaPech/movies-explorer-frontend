@@ -107,5 +107,34 @@
         grid-template-rows: repeat(2, 57px);
         gap: 10px;
     }
+}
+
+    @media screen and (max-width: 480px) {
+        .techs__container {
+            max-height: none;
+        }
+        .techs__text {
+            margin-top: 70px;
+            margin-left: 18px;
+            margin-right: 18px;
+            font-size: 18px;
+            padding-bottom: 28px;
+        }
+        .techs__title {
+            margin: 50px auto 15px;
+            font-size: 30px;
+           
+        }
+        .techs__subtitle {
+            font-size: 11px;
+            line-height: 16px;
+            max-width: 300px;
+        }
+        .techs__table {
+            margin: 50px auto 70px;
+            grid-template-columns: repeat(2, 84px);
+            grid-template-rows: repeat(4, 57px);
+            gap: 10px;
+        }
 
 }
