@@ -51,3 +51,12 @@
     margin-bottom: 20px;
 
 }
+
+@media screen and (max-width: 450px) {
+    .form__register-text {
+        font-size: 12px;
+    }
+    .form__register-link {
+        font-size: 12px;
+    }
+}

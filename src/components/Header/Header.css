@@ -12,10 +12,6 @@
     object-fit: cover;
 }
 
-/* .header__link {
-    max-width: 38px;
-} */
-
 .header__container {
     display: flex;
     box-sizing: border-box;
@@ -51,10 +47,22 @@
     padding: 0;
 }
 
-/* @media screen and (max-width: 768px) {
-    .lead {
-        max-width: 768px;
-        margin-bottom: 88px;
+.navigation__links-first {
+    display: flex;
+    box-sizing: border-box;
+    max-width: 380px;
+}
+
+@media screen and (max-width: 768px) {
+    .header__container {
+       padding: 20px 30px;
     }
 
-} */
+}
+
+@media screen and (max-width: 320px) {
+    .header__container {
+       padding: 14px 18px;
+    }
+
+}

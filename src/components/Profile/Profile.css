@@ -39,7 +39,7 @@
     text-align: right;
     height: 30px;
     border: none;
-    
+
 }
 
 .profile__input::placeholder {
@@ -68,6 +68,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding: 0;
 }
 
 .profile__button:hover {
@@ -86,6 +87,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding: 0;
 }
 
 .profile__button:hover {
@@ -101,12 +103,64 @@
     height: 45px;
     width: 410px;
     border-radius: 3px;
-    text-align: center;
     border: none;
     margin-top: 223px;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 14px;
+
 }
 
-.profile__bbutton-save:hover {
+.profile__button-save:hover {
     opacity: 0.8;
-    
+
+}
+
+@media screen and (max-width: 768px) {
+    .profile__title {
+        margin-bottom: 90px;
+    }
+
+    .profile__button {
+        margin-top: 215px;
+        margin-bottom: 14px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .profile__title {
+        margin-bottom: 75px;
+    }
+
+    .profile__form {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .profile__container {
+        width: 270px;
+    }
+
+    .profile__input-container {
+        margin-bottom: 17px;
+    }
+
+    .profile__input-container:last-child {
+        margin-bottom: 0;
+    }
+
+    .profile__button {
+        margin-top: 350px;
+    }
+
+    .profile__form {
+        margin-bottom: 50px;
+    }
+
+    .profile__button-save {
+        width: 260px;
+        height: 45px;
+        font-size: 12px;
+    }
+
 }

@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .form__logo {
@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .form__button {
@@ -50,4 +50,28 @@
 
 .form__button:hover {
     opacity: 0.8;
+}
+
+@media screen and (max-width: 450px) {
+    .form {
+        margin: 55px auto 60px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form__text {
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }
+
+    .form__button {
+        font-size: 12px;
+        line-height: normal;
+        margin-top: 155px;
+        max-width: 260px;
+        margin-bottom: 13px;
+    }
+    .form__container {
+        width: 260px;
+    }
 }

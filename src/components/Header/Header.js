@@ -25,7 +25,7 @@ function Header() {
                         {location === "/profile" && <NavigationHeader />}
                      </div>
                 ) : (
-                    < nav className="navigation__links">
+                    < nav className="navigation__links-first">
                     <Link to="/signup" className="navigation__link">Регистрация</Link>
                     <Link to="/signin" className="navigation__link navigation__link_container">
                         <button type="button" className="navigation__button-black">Войти</button>

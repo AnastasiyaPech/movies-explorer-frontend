@@ -99,15 +99,18 @@
     opacity: 0.8;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
 
     .button__burger-menu {
         display: block;
         position: relative;
-        right: 30;
-        top: 15;
+        margin-right: 45px;
+        /* margin-top: 5px; */
         z-index: 10;
         margin-left: auto;
+        object-fit: cover;
+        width: 35px;
+        height: 40px;
     }
 
     .button__burger-menu_close {

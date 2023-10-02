@@ -39,3 +39,26 @@
 .link__to-main:hover {
     opacity: 0.7;
 }
+
+@media screen and (max-width: 768px) {
+    .not-found__container {
+        margin: 408px auto 447px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .not-found__container {
+        margin: 329px auto 354px;
+    }
+    .not-found__title {
+        font-size: 80px;
+        margin-bottom: 10px;
+    }
+    .not-found__text {
+        margin-bottom: 284px;
+        font-size: 12px;
+    }
+    .link__to-main {
+        font-size: 12px;
+    }
+}
