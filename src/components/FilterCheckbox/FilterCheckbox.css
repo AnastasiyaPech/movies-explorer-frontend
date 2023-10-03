@@ -47,3 +47,15 @@
     margin-right: 30px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 500px) {
+    .checkbox__container {
+        padding-top: 50px;
+        margin-left: 70px;
+        margin-right: 86px;
+    }
+
+    .checkbox__text {
+        font-size: 11px;
+    }
+}

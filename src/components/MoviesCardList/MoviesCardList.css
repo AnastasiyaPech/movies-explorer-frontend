@@ -42,6 +42,7 @@
         grid-template-columns: repeat(1, 300px);
         row-gap: 5px;
         padding-top: 50px;
+        /* margin-top: 44px; */
        
 
     }

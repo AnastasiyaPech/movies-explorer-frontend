@@ -58,3 +58,26 @@
         width: 60%;
     }
 }
+
+@media screen and (max-width: 590px) {
+    .search__input {
+        width: 40%;
+        height: 72px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .search__icon {
+        display: none;
+    }
+
+    .search__stick {
+        display: none;
+    }
+
+    .search__container {
+        max-width: 300px;
+        flex-wrap: wrap;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

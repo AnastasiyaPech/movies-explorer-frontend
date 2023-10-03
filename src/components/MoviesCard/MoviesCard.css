@@ -126,3 +126,12 @@
     }
 
 }
+
+@media screen and (max-width: 320px) {
+    .moviescard__button-save {
+        opacity: 1;
+    } 
+    .moviescard__button-delete {
+        opacity: 1;
+    }
+}

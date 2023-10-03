@@ -31,3 +31,15 @@
         margin-top: 50px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .movies__container {
+        margin-top: 80px;
+        margin-bottom: 90px;
+    }
+
+    .movies__button-more {
+        margin-top: 65px;
+        width: 240px;
+    }
+}
