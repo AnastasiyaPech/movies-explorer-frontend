@@ -24,7 +24,7 @@
 .header__navigation {
     display: flex;
     box-sizing: border-box;
-    max-width: 380px;
+    /* max-width: 380px; */
 }
 
 
