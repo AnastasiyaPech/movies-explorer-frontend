@@ -12,6 +12,7 @@ function Header() {
         setLoggedIn(!loggedIn);
     }
 
+    
 
     return (
         <header className="header">

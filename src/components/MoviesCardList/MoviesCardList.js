@@ -15,6 +15,7 @@ function MoviesCardList({list}) {
                      duration={data.duration} 
                      >
                      </MoviesCard> 
+                     
                 }) 
             }
         </div>

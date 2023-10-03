@@ -2,7 +2,7 @@
     display: flex;
     box-sizing: border-box;
     max-height: 72px;
-    width: 100%;
+    width: 90%;
     margin: 0;
     justify-content: space-between;
     /* border-right: 1px #CBCBCB solid; */
@@ -51,4 +51,10 @@
     object-fit: cover;
     margin: 0;
     padding: 0;
+}
+
+@media screen and (max-width: 1170px) {
+    .search__input {
+        width: 60%;
+    }
 }
