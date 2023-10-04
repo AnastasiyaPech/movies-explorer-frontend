@@ -4,7 +4,7 @@ import foto from '../../images/pic_foto_pic.svg';
 
 function AboutMe() {
     return (
-        <div className="aboutme__container">
+        <div className="aboutme__container" id="student">
             <h2 className="aboutme__text">Студент</h2>
             <div className="content__container">
                 <div className="list">

@@ -3,6 +3,7 @@
     box-sizing: border-box;
     align-items: center;
     /* max-width: 350px; */
+
     width: 100%;
 }
 
@@ -187,6 +188,4 @@
 
 }
 
-@media screen and (max-width: 320px) {
-
-}
+@media screen and (max-width: 320px) {}

@@ -27,14 +27,15 @@ function Header() {
                      </div>
                 ) : (
                     < nav className="navigation__links-first">
-                    <Link to="/signup" className="navigation__link">Регистрация</Link>
-                    <Link to="/signin" className="navigation__link navigation__link_container">
+                    <Link to="/signup" className="navigation__link-first">Регистрация</Link>
+                    <Link to="/signin" className="navigation__link-first navigation__link-container">
                         <button type="button" className="navigation__button-black">Войти</button>
                     </Link>
                 </nav>
                 )}
             </div>
         </header>
+
     );
 }
 

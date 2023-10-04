@@ -50,12 +50,49 @@
 .navigation__links-first {
     display: flex;
     box-sizing: border-box;
+    align-items: center;
     max-width: 380px;
+}
+
+.navigation__link-first {
+    text-decoration: none;
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    margin-right: 30px;
+}
+
+.navigation__link-first:last-child {
+    margin-right: 0;
+}
+.navigation__link-first:hover {
+    opacity: 0.7;
+}
+
+.navigation__link-container {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
 }
 
 @media screen and (max-width: 768px) {
     .header__container {
        padding: 20px 30px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .navigation__link-first {
+        font-size: 10px;
+        margin-right: 10px;
+    }
+    .navigation__button-black {
+        font-size: 10px;
+        height: 26px;
+        width: 54px;
     }
 
 }
