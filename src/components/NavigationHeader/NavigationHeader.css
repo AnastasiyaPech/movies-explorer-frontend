@@ -188,4 +188,18 @@
 
 }
 
-@media screen and (max-width: 320px) {}
+@media screen and (max-width: 320px) {
+    .navigation__links{
+        width: 320px;
+    }
+    .navigation__link {
+        padding-bottom: 24px;
+        max-width: 300px;
+    }
+    .navigation__links.active {
+        right: 320px;
+    }
+    .navigation__link:nth-child(3n) {
+        padding-bottom: 145px;
+    }
+}
