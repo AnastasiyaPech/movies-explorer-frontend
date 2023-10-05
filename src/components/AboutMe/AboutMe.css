@@ -65,6 +65,7 @@
     object-fit: cover;
     box-sizing: border-box;
     max-width: 270px;
+    border-radius: 10px;
 
 }
 

@@ -22,10 +22,11 @@
 
 .link__container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    width: 100%;
+    /* width: 100%; */
     border-bottom: 1px solid #E8E8E8;
     margin-bottom: 40px;
 }
@@ -43,19 +44,31 @@
     padding: 0;
     text-decoration: none;
     color: #000000;
-    max-width: 880px;
+    /* width: 880px; */
+    /* width: 100%; */
 }
 
 .portfolio__link:hover {
     opacity: 0.7;
 }
 
+.logo__conteiner {
+    box-sizing: border-box;
+    max-width: 16px;
+}
 .portfolio__logo {
     object-fit: cover;
     box-sizing: border-box;
     max-height: 16px;
     max-width: 16px;
+    /* margin-left: 860px; */
 }
+/* .portfolio__logo_left {
+    margin-left: 680px;
+} */
+/* .portfolio__logo:nth-child(3n) {
+    margin-left: 680px;
+} */
 
 @media screen and (max-width: 1020px) {
     .portfolio__container {

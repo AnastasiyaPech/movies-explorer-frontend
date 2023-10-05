@@ -6,7 +6,7 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 function SearchForm() {
     return (
 
-        <form className="search__container" name="search__form" noValidate>
+        <form className="search__container" name="search__form">
             <img src={icon} className="search__icon" alt="иконка поиска" />
             <input type="text" required className="search__input" name="search"
                 placeholder="Фильм"/>

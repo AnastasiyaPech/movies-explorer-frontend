@@ -9,7 +9,9 @@
     -moz-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow: auto;
+    /* overflow: auto; */
+    overflow: visible;
+
 }
 
 

@@ -13,7 +13,7 @@ function Profile() {
             <Header />
             <div className="profile__form">
                 <h2 className="profile__title">Привет, Виталий!</h2>
-                <form className="profile__container" name="registration__form" noValidate>
+                <form className="profile__container" name="registration__form">
                     <div className="profile__input-container">
                         <input type="name" required className="profile__input profile__input_border" name="userName"
                             placeholder="Имя" minLength="2" maxLength="40" />
