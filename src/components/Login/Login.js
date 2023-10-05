@@ -27,8 +27,6 @@ function Login() {
                 <input type="password" required className="form__input" name="userPassword"
                     placeholder="Пароль" minLength="2" maxLength="200" />
             </div>
-
-
         </Form>
     );
 }

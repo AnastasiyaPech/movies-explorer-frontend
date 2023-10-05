@@ -12,26 +12,26 @@ function Header() {
         setLoggedIn(!loggedIn);
     }
 
-    
-
     return (
         <header className="header">
-            <div className={`header__container ${location === "/" ? "header__container_pink" : ''}`}>
-                    <img src={logo} className="header__logo" alt="логотип" onClick={handleSetLoggedIn} />
+            <div className={`header__container ${location === "/" ? "header__container_pink" : ''}`} onClick={handleSetLoggedIn}>
+                <Link to="/" >
+                    <img src={logo} className="header__logo" alt="логотип" />
+                </Link>
                 {loggedIn ? (
                     <div className="header__navigation">
                         {location === "/" && <NavigationHeader />}
                         {location === "/movies" && <NavigationHeader />}
                         {location === "/saved-movies" && <NavigationHeader />}
                         {location === "/profile" && <NavigationHeader />}
-                     </div>
+                    </div>
                 ) : (
                     < nav className="navigation__links-first">
-                    <Link to="/signup" className="navigation__link-first">Регистрация</Link>
-                    <Link to="/signin" className="navigation__link-first navigation__link-container">
-                        <button type="button" className="navigation__button-black">Войти</button>
-                    </Link>
-                </nav>
+                        <Link to="/signup" className="navigation__link-first">Регистрация</Link>
+                        <Link to="/signin" className="navigation__link-first navigation__link-container">
+                            <button type="button" className="navigation__button-black">Войти</button>
+                        </Link>
+                    </nav>
                 )}
             </div>
         </header>

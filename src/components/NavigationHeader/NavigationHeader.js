@@ -24,10 +24,8 @@ function NavigationHeader() {
             </nav>
             <button type="button"
                 className={`button__burger-menu ${isOpen ? "button__burger-menu_close" : "button__burger-menu"}`}
-                onClick={handleSetNavClick}
-            >
+                onClick={handleSetNavClick} >
             </button>
-
         </>
     );
 }

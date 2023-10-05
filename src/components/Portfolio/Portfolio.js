@@ -9,27 +9,26 @@ function Portfolio() {
             <h3 className="portfolio__title">Портфолио</h3>
             <nav className="portfolio__links">
                 <div className="link__container">
-                    <a href="https://github.com/yandex-praktikum/how-to-learn.git"
+                    <p className="portfolio__text">Статичный сайт</p>
+                    <a href="https://github.com/AnastasiyaPech/how-to-learn.git"
                         target='_blank' rel="noopener noreferrer" className="portfolio__link">
-                        Статичный сайт
-                        <div className="logo__conteiner">
                         <img src={arrow} className="portfolio__logo" alt="указатель" />
-                        </div>
-                        </a>
+                    </a>
                 </div>
                 <div className="link__container">
+                    <p className="portfolio__text">Адаптивный сайт</p>
                     <a href="https://github.com/AnastasiyaPech/russian-travel.git"
-                        target='_blank' rel="noopener noreferrer" className="portfolio__link">Адаптивный сайт
+                        target='_blank' rel="noopener noreferrer" className="portfolio__link">
                         <img src={arrow} className="portfolio__logo" alt="указатель" /></a>
                 </div>
                 <div className="link__container">
-                    <a href="https://github.com/yandex-praktikum/react-mesto-api-full-gha.git"
-                        target='_blank' rel="noopener noreferrer" className="portfolio__link">Одностраничное приложение
+                    <p className="portfolio__text">Одностраничное приложение</p>
+                    <a href="https://github.com/AnastasiyaPech/react-mesto-api-full-gha.git"
+                        target='_blank' rel="noopener noreferrer" className="portfolio__link">
                         <img src={arrow} className="portfolio__logo" alt="указатель" /></a>
                 </div>
             </nav>
         </section>
-
     );
 }
 

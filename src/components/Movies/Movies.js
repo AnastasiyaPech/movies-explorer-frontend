@@ -17,7 +17,6 @@ function Movies() {
                 <SearchForm />
                 <MoviesCardList list={initialMovies}/>
                 <button type="button" className="movies__button-more">Ещё</button>
-                
             </div>
             <Footer />
         </>

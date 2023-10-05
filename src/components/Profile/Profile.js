@@ -22,7 +22,6 @@ function Profile() {
                         <input type="email" required className="profile__input" name="userUrl"
                             placeholder="E-mail" minLength="2" maxLength="200" />
                     </div>
-                    
                     {isEdit
                         ? <button type="submit" className="profile__button-save">Сохранить</button>
                         : <>
@@ -30,7 +29,6 @@ function Profile() {
                             <button type="submit" className="profile__button-exit">Выйти из аккаунта</button>
                         </>
                     }
-
                 </form>
             </div>
         </>
