@@ -1,0 +1,205 @@
+.navigation__links {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    /* max-width: 350px; */
+
+    width: 100%;
+}
+
+.navigation__link {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    margin-right: 20px;
+}
+
+.navigation__link_main {
+    display: none;
+}
+
+.navigation__link:last-child {
+    margin-right: 0;
+}
+
+.navigation__link:hover {
+    opacity: 0.7;
+}
+
+.navigation__link_container {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.navigation__text {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    margin: 0;
+    margin-right: 13px;
+}
+
+.navigation__button {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background-image: url(../../images/icon_black_icon-main.svg);
+    background-color: #F9F9F9;
+    object-fit: cover;
+    box-sizing: border-box;
+    border: none;
+    background-repeat: no-repeat;
+    outline: none;
+    cursor: pointer;
+    background-position: center;
+    background-origin: content-box;
+}
+
+.navigation__button:hover {
+    opacity: 0.8;
+}
+
+.navigation__button_pink {
+    background-image: url(../../images/icon_accaunt-main.svg);
+    background-color: #000;
+    object-fit: cover;
+}
+
+/* бургер меню */
+.button__burger-menu {
+    background: url("../../images/icon__burger-menu.svg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.button__burger-menu_close {
+    background: url("../../images/icon__burgerclose.svg");
+    background-repeat: no-repeat;
+}
+
+.button__burger-menu:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+    .button__burger-menu {
+        display: block;
+        position: relative;
+        margin-right: 45px;
+        /* margin-top: 5px; */
+        z-index: 10;
+        margin-left: auto;
+        object-fit: cover;
+        width: 35px;
+        height: 40px;
+    }
+
+    .button__burger-menu_close {
+        position: relative;
+        z-index: 10;
+    }
+
+    .navigation__link_main {
+        display: block;
+        margin-top: 150px;
+    }
+
+    .navigation__links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        /* left: -550px; */
+        /* transform: translateX(-100%); */
+        right: -520px;
+        top: 0;
+        /* right: 0; */
+        /* bottom: 0; */
+        width: 520px;
+        background-color: #FFF;
+        /* height: 100%; */
+        height: 100%;
+        z-index: 10;
+        transition: transform 0.5s ease-out;
+    }
+
+    .navigation__blur {
+        background-color: rgba(0, 0, 0, 0.3);
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .navigation__blur.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navigation__links.active {
+        transform: translateX(100%);
+        /* left: 100px; */
+        /* left: -270px; */
+        right: 470px;
+    }
+
+    .navigation__link {
+        padding-bottom: 28px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: normal;
+        margin-right: 0;
+        max-width: 340px;
+    }
+
+    .navigation__link:nth-child(3n) {
+        padding-bottom: 320px;
+    }
+
+    .navigation__link:last-child {
+        padding-bottom: 0;
+        padding-top: 300px;
+    }
+
+    .navigation__button {
+        background-image: url(../../images/icon_black_icon-main.svg);
+        background-color: #F9F9F9;
+    }
+
+}
+
+@media screen and (max-width: 460px) {
+    .navigation__links{
+        width: 320px;
+    }
+    .navigation__link {
+        padding-bottom: 24px;
+        max-width: 300px;
+    }
+    .navigation__links.active {
+        right: 320px;
+    }
+    .navigation__link:nth-child(3n) {
+        padding-bottom: 145px;
+    }
+}

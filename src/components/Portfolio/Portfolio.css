@@ -1,0 +1,115 @@
+.portfolio__container {
+    max-width: 1140px;
+    margin: 100px 70px 125px;
+    box-sizing: border-box;
+}
+
+.portfolio__title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+    margin-bottom: 50px;
+    color: #a0a0a0;
+}
+
+.portfolio__links {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.link__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:baseline;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid #E8E8E8;
+    margin-bottom: 40px;
+}
+
+.link__container:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.portfolio__link {
+    text-decoration: none;
+    color: #000000;
+    text-align: start;
+}
+.portfolio__text {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio__link:hover {
+    opacity: 0.7;
+}
+
+.logo__conteiner {
+    box-sizing: border-box;
+    max-width: 16px;
+}
+.portfolio__logo {
+    object-fit: cover;
+    box-sizing: border-box;
+    max-height: 16px;
+    max-width: 16px;
+}
+
+@media screen and (max-width: 1020px) {
+    .portfolio__container {
+        margin: 90px 50px 90px;
+        box-sizing: border-box;
+    }
+
+    .portfolio__text {
+        font-size: 28px;
+    }
+
+    .link__container {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .portfolio__title {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    .portfolio__container {
+        margin: 70px 20px 70px;
+    }
+
+    .portfolio__text {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .link__container {
+        padding-bottom: 19px;
+        margin-bottom: 20px;
+    }
+
+    .link__container:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 400px) {
+    .portfolio__container {
+        margin: 70px 14px 70px;
+    }
+    .portfolio__logo {
+        max-height: 13px;
+        max-width: 13px;
+    }
+}

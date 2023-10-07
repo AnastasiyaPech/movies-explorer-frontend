@@ -1,0 +1,137 @@
+.moviescard__container {
+    /* max-width: 360px;
+    max-height: 231px; */
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.moviescard__container:nth-child(3n) {
+    margin-right: 0;
+}
+
+.moviescard__place {
+    position: relative;
+}
+
+.moviescard__button-save {
+    position: absolute;
+    width: 72px;
+    height: 21px;
+    border-radius: 30px;
+    padding: 0;
+    right: 14px;
+    top: 14px;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 9px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0;
+}
+
+/* если фильм сохранили */
+.moviescard__button-save_saved {
+    background: url("../../images/save3__movie.svg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    font-size: 0;
+    width: 21px;
+    height: 21px;
+    opacity: 1;
+}
+
+.moviescard__button-save_saved:hover {
+    opacity: 0.8;
+}
+
+.moviescard__place:hover .moviescard__button-save {
+    opacity: 1;
+}
+
+/* удаление фильма */
+.moviescard__button-delete {
+    background: url("../../images/icon__deletemovie.svg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 21px;
+    height: 21px;
+    font-size: 0;
+    box-sizing: border-box;
+}
+
+.moviescard__button-delete:hover {
+    opacity: 0.8;
+}
+
+.moviescard__image {
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 201px;
+    /* width: 360px; */
+    width: 100%;
+    cursor: pointer;
+}
+
+.list__container {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.list__text {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.list__duration {
+    color: #A0A0A0;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px;
+}
+
+@media screen and (max-width: 1170px) {
+    .moviescard__image {
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .moviescard__image {
+        height: 168px;
+    }
+    .list__container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .list__text{
+        font-size: 12px;
+    }
+    .moviescard__container {
+        max-height: 200px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .moviescard__button-save {
+        opacity: 1;
+    } 
+    .moviescard__button-delete {
+        opacity: 1;
+    }
+}
