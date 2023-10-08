@@ -1,8 +1,11 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import Header from '../Header/Header';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 
-function Profile() {
+function Profile({ logOut }) {
+
+    const currentUser = useContext(CurrentUserContext); //данные о пользователе
 
     const [isEdit, setEdit] = useState(false);
     function handleSetEdit() {
@@ -12,7 +15,7 @@ function Profile() {
         <>
             <Header />
             <div className="profile__form">
-                <h2 className="profile__title">Привет, Виталий!</h2>
+                <h2 className="profile__title">Привет, {currentUser.name}</h2>
                 <form className="profile__container" name="registration__form">
                     <div className="profile__input-container">
                         <input type="name" required className="profile__input profile__input_border" name="userName"
@@ -26,7 +29,7 @@ function Profile() {
                         ? <button type="submit" className="profile__button-save">Сохранить</button>
                         : <>
                             <button type="submit" className="profile__button" onClick={handleSetEdit}>Редактировать</button>
-                            <button type="submit" className="profile__button-exit">Выйти из аккаунта</button>
+                            <button type="submit" className="profile__button-exit" onClick={logOut}>Выйти из аккаунта</button>
                         </>
                     }
                 </form>
