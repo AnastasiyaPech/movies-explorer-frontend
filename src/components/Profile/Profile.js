@@ -15,7 +15,7 @@ function Profile({ logOut }) {
         <>
             <Header />
             <div className="profile__form">
-                <h2 className="profile__title">Привет, {currentUser.name}</h2>
+                <h2 className="profile__title">Привет, {currentUser.name} !</h2>
                 <form className="profile__container" name="registration__form">
                     <div className="profile__input-container">
                         <input type="name" required className="profile__input profile__input_border" name="userName"

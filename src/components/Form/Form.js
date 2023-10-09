@@ -1,6 +1,7 @@
-import React from 'react';
+import{ React } from 'react';
 
-function Form({ logo, title, textReg, children, buttonTitle, onSubmit }) {
+function Form({ logo, title, textReg, children, onSubmit }) {
+
 
     return (
         <div className="form">
@@ -8,7 +9,6 @@ function Form({ logo, title, textReg, children, buttonTitle, onSubmit }) {
             <h2 className="form__text">{title}</h2>
             <form className="form__container" name="registration__form" onSubmit={onSubmit}>
                 {children}
-                <button type="submit" className="form__button" onSubmit={onSubmit}>{buttonTitle}</button>
             </form>
             {textReg}
         </div>
