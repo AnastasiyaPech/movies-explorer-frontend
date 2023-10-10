@@ -21,6 +21,19 @@ class Api {
             .then(this._checkResponse)
     };
 
+    //редактирование профиля пользователя
+    changeUserInfo(data) {
+        return fetch(`${this._baseUrl}/users/me`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+            }),
+            headers: this._headers
+        })
+            .then(this._checkResponse)
+    };
+
     updateAuthorizationToken(token) {
         this._headers.authorization = `Bearer ${token}`
     }

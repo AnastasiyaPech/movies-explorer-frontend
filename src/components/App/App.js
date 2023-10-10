@@ -12,21 +12,24 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../ProtectedRoute';
 import { register, authorize, checkToken } from '../../utils/auth';
 import apiUsers from '../../utils/MainApi';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState({});  //данные о пользователе
   const [loggedIn, setLoggedIn] = useState(false);   //статус пользователя залогинен или нет
+  const [isSuccessInfoTooltipStatus, setIsSuccessInfoTooltipStatus] = useState(false); // уведомление об успешном редактировании профиля
+  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false); // открытие попапа-уведомления
   const navigate = useNavigate();
 
   //проверка токена
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     handleCheckToken(token);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
- 
+
   //обновляет данные о пользоваеле
   useEffect(() => {
     if (loggedIn) {
@@ -43,7 +46,7 @@ function App() {
 
   // регистрация
   function handleRegister(name, email, password) {
-   return register(name, email, password)
+    return register(name, email, password)
       .then((data) => {
         console.log(data)
         handleLogin(email, password)
@@ -51,9 +54,9 @@ function App() {
         // apiUsers.updateAuthorizationToken(token);
         // navigate("/movies");
       })
-      // .catch(err => {
-      //   console.log(err);
-      // })
+    // .catch(err => {
+    //   console.log(err);
+    // })
   }
 
 
@@ -69,36 +72,57 @@ function App() {
         apiUsers.updateAuthorizationToken(token);
         navigate("/movies");
       })
+    // .catch(err => {
+    //   console.log(err);
+    // })
+  }
+
+  // проверка токена
+  function handleCheckToken(token) {
+    if (token) {
+      checkToken(token)
+        .then((res) => {
+          console.log(res)
+          if (res) {
+            console.log(res)
+            setLoggedIn(true);
+            apiUsers.updateAuthorizationToken(token);
+            navigate("/movies");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
+
+  //редактирование профиля
+  function handleUpdateUser(data) {
+    return apiUsers.changeUserInfo(data)
+      .then((data) => {
+        setCurrentUser(data)
+        setIsInfoTooltipOpen(true);
+        setIsSuccessInfoTooltipStatus(true);
+
+      })
       // .catch(err => {
+      //   setIsInfoTooltipOpen(true);
+      //   setIsSuccessInfoTooltipStatus(false);
       //   console.log(err);
       // })
   }
 
-// проверка токена
-  function handleCheckToken(token) {
-    if (token) {
-        checkToken(token)
-            .then((res) => {
-              console.log(res)
-                if (res) {
-                  console.log(res)
-                    setLoggedIn(true);
-                    apiUsers.updateAuthorizationToken(token);
-                    navigate("/movies");  
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
-}
+  function closePopup() {
+    setIsInfoTooltipOpen(false);
+
+  }
 
   //удаление токена и редирект на авторизацию
   function signOut() {
     localStorage.removeItem("jwt");
     navigate("/signin");
     setLoggedIn(false);
-}
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -107,7 +131,7 @@ function App() {
           <Route path="/signup" element={<Register registerUser={handleRegister} loggedIn={loggedIn} />} />
           <Route path="/signin" element={<Login loginUser={handleLogin} loggedIn={loggedIn} />} />
           <Route path="/profile" element={
-            <ProtectedRoute element={<Profile logOut={signOut}/>}
+            <ProtectedRoute element={<Profile onUpdateUser={handleUpdateUser} logOut={signOut} />}
               loggedIn={loggedIn} />} />
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={
@@ -119,6 +143,14 @@ function App() {
                 loggedIn={loggedIn} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+
+        {/* попап редактирования профиля */}
+        <InfoTooltip
+          isSuccessInfoTooltipStatus={isSuccessInfoTooltipStatus}
+          isOpen={isInfoTooltipOpen}
+          onClose={closePopup}>
+        </InfoTooltip>
+
       </div>
     </CurrentUserContext.Provider>
   );
