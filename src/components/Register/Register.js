@@ -9,11 +9,15 @@ function Register({ registerUser }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
     // валидация
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [formValid, setFormValid] = useState(false);
+    const [apiError, setApiError] = useState('');
+
+
 
     useEffect(() => {
         if (nameError || emailError || passwordError) {
@@ -57,7 +61,10 @@ function Register({ registerUser }) {
             name,
             email,
             password,
-        );
+        )
+            .catch((err) => {
+                setApiError(err);
+            });
     }
 
     return (
@@ -89,8 +96,9 @@ function Register({ registerUser }) {
                 <input type="password" required value={password} onChange={handlePasswordChange} className="form__input" name="userPassword"
                     placeholder="Пароль" />
                 {passwordError && <span className="form__input-error">{passwordError}</span>}
-                </div>
-                <button disabled={!formValid ? 'disabled' : ''} type="submit" 
+            </div>
+            {apiError && <span className="form__api-error">{apiError}</span>}
+            <button disabled={!formValid ? 'disabled' : ''} type="submit"
                 className={`form__button ${!formValid && "form__button_disabled"}`}>Зарегистрироваться</button>
         </Form>
     );

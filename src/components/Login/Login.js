@@ -12,6 +12,7 @@ function Login({ loginUser }) {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [formValid, setFormValid] = useState(false);
+    const [apiError, setApiError] = useState('');
 
     useEffect(() => {
         if (emailError || passwordError) {
@@ -45,7 +46,10 @@ function Login({ loginUser }) {
         loginUser(
             email,
             password,
-        );
+        )
+            .catch((err) => {
+                setApiError(err);
+            });
     }
 
     return (
@@ -71,6 +75,7 @@ function Login({ loginUser }) {
                     placeholder="Пароль" />
                 {passwordError && <span className="form__input-error">{passwordError}</span>}
             </div>
+            {apiError && <span className="form__api-error">{apiError}</span>}
             <button disabled={!formValid ? 'disabled' : ''} type="submit"
                 className={`form__button ${!formValid && "form__button_disabled"}`}>Войти</button>
         </Form>

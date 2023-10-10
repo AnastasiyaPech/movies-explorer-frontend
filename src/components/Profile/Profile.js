@@ -1,15 +1,38 @@
-import { React, useState, useContext } from 'react';
+import { React, useState, useContext, useEffect } from 'react';
 import Header from '../Header/Header';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 
-function Profile({ logOut }) {
+function Profile({ logOut, onUpdateUser  }) {
 
     const currentUser = useContext(CurrentUserContext); //данные о пользователе
-
     const [isEdit, setEdit] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+
+    useEffect(() => {
+        setName(currentUser.name || '');
+        setEmail(currentUser.email || '');
+    }, [currentUser])
+
+
     function handleSetEdit() {
         setEdit(!isEdit);
+    }
+    function handleNameChange(e) {
+        setName(e.target.value);
+    }
+
+    function handleDescriptionChange(e) {
+        setEmail(e.target.value);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        onUpdateUser({
+            name,
+            email
+        });
     }
     return (
         <>
@@ -19,11 +42,11 @@ function Profile({ logOut }) {
                 <form className="profile__container" name="registration__form">
                     <div className="profile__input-container">
                         <input type="name" required className="profile__input profile__input_border" name="userName"
-                            placeholder="Имя" minLength="2" maxLength="40" />
+                            placeholder="Имя" />
                     </div>
                     <div className="profile__input-container">
                         <input type="email" required className="profile__input" name="userUrl"
-                            placeholder="E-mail" minLength="2" maxLength="200" />
+                            placeholder="E-mail" />
                     </div>
                     {isEdit
                         ? <button type="submit" className="profile__button-save">Сохранить</button>

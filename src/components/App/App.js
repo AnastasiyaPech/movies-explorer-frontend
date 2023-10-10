@@ -43,7 +43,7 @@ function App() {
 
   // регистрация
   function handleRegister(name, email, password) {
-    register(name, email, password)
+   return register(name, email, password)
       .then((data) => {
         console.log(data)
         handleLogin(email, password)
@@ -51,14 +51,15 @@ function App() {
         // apiUsers.updateAuthorizationToken(token);
         // navigate("/movies");
       })
-      .catch(err => {
-        console.log(err);
-      })
+      // .catch(err => {
+      //   console.log(err);
+      // })
   }
+
 
   //авторизация
   function handleLogin(email, password) {
-    authorize(email, password)
+    return authorize(email, password)
       .then((data) => {
         console.log(data)
         const token = data.token;
@@ -68,9 +69,9 @@ function App() {
         apiUsers.updateAuthorizationToken(token);
         navigate("/movies");
       })
-      .catch(err => {
-        console.log(err);
-      })
+      // .catch(err => {
+      //   console.log(err);
+      // })
   }
 
 // проверка токена

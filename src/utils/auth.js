@@ -2,8 +2,9 @@ export const BASE_URL = 'https://api.vertydiploma.nomoredomainsicu.ru';
 
 //проверка ответа сервера
 function getResponseData(res) {
+    console.log(res)
     if (!res.ok) {
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
     }
     return res.json();
 }
