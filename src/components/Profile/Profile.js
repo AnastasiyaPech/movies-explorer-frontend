@@ -1,5 +1,4 @@
 import { React, useState, useContext, useEffect } from 'react';
-import Header from '../Header/Header';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 
@@ -67,7 +66,6 @@ function Profile({ logOut, onUpdateUser }) {
     }
     return (
         <>
-            <Header />
             <div className="profile__form" onSubmit={handleSubmit}>
                 <h2 className="profile__title">Привет, {currentUser.name} !</h2>
                 <form className="profile__container" name="registration__form">

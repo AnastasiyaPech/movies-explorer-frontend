@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Main from '../Main/Main';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
@@ -13,6 +13,7 @@ import ProtectedRoute from '../ProtectedRoute';
 import { register, authorize, checkToken } from '../../utils/auth';
 import apiUsers from '../../utils/MainApi';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
+import Header from '../Header/Header';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   const [isSuccessInfoTooltipStatus, setIsSuccessInfoTooltipStatus] = useState(false); // уведомление об успешном редактировании профиля
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false); // открытие попапа-уведомления
   const navigate = useNavigate();
+  const location = useLocation().pathname;
 
   //проверка токена
   useEffect(() => {
@@ -35,7 +37,6 @@ function App() {
     if (loggedIn) {
       apiUsers.getToUserInfo()
         .then((data) => {
-          console.log(data)
           setCurrentUser(data)
         })
         .catch(err => {
@@ -48,17 +49,9 @@ function App() {
   function handleRegister(name, email, password) {
     return register(name, email, password)
       .then((data) => {
-        console.log(data)
         handleLogin(email, password)
-        // setLoggedIn(true);
-        // apiUsers.updateAuthorizationToken(token);
-        // navigate("/movies");
       })
-    // .catch(err => {
-    //   console.log(err);
-    // })
   }
-
 
   //авторизация
   function handleLogin(email, password) {
@@ -67,13 +60,11 @@ function App() {
         const token = data.token;
         localStorage.setItem("jwt", token);
         setLoggedIn(true);
-        // setCurrentUser(currentUser);
+        console.log(loggedIn)
+        // setCurrentUser(data);
         apiUsers.updateAuthorizationToken(token);
         navigate("/movies");
       })
-    // .catch(err => {
-    //   console.log(err);
-    // })
   }
 
   // проверка токена
@@ -83,7 +74,8 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            // setCurrentUser(res);
+            console.log(loggedIn)
+            setCurrentUser(res);
             apiUsers.updateAuthorizationToken(token);
             navigate("/movies");
           }
@@ -96,37 +88,34 @@ function App() {
 
   //редактирование профиля
   function handleUpdateUser(data) {
-    console.log(data)
     return apiUsers.changeUserInfo(data)
       .then((data) => {
-        console.log(data)
         setCurrentUser(data)
         setIsInfoTooltipOpen(true);
         setIsSuccessInfoTooltipStatus(true);
 
       })
-      // .catch(err => {
-      //   // setIsInfoTooltipOpen(true);
-      //   // setIsSuccessInfoTooltipStatus(false);
-      //   console.log(err);
-      // })
   }
 
   function closePopup() {
     setIsInfoTooltipOpen(false);
-
   }
 
-  //удаление токена и редирект на авторизацию
+  //удаление токена и редирект на главную
   function signOut() {
     localStorage.removeItem("jwt");
-    navigate("/signin");
+    // navigate("/signup");
     setLoggedIn(false);
+    navigate("/");
   }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
+        {location === "/movies" && <Header loggedIn={loggedIn}/>}
+        {location === "/saved-movies" && <Header loggedIn={loggedIn}/>}
+        {location === "/profile" && <Header loggedIn={loggedIn}/>}
+        {location === "/" && <Header loggedIn={loggedIn}/>}
         <Routes>
           <Route path="/signup" element={<Register registerUser={handleRegister} loggedIn={loggedIn} />} />
           <Route path="/signin" element={<Login loginUser={handleLogin} loggedIn={loggedIn} />} />
@@ -150,7 +139,6 @@ function App() {
           isOpen={isInfoTooltipOpen}
           onClose={closePopup}>
         </InfoTooltip>
-
       </div>
     </CurrentUserContext.Provider>
   );

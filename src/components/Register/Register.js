@@ -9,15 +9,12 @@ function Register({ registerUser }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
     // валидация
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [formValid, setFormValid] = useState(false);
     const [apiError, setApiError] = useState('');
-
-
 
     useEffect(() => {
         if (nameError || emailError || passwordError) {
@@ -74,7 +71,7 @@ function Register({ registerUser }) {
             textReg={
                 <div className="form__register-container">
                     <p className="form__register-text">Уже зарегистрированы?</p>
-                    <Link to="login" className="form__register-link">Войти</Link>
+                    <Link to="/signin" className="form__register-link">Войти</Link>
                 </div>
             }
             onSubmit={handleSubmit}>

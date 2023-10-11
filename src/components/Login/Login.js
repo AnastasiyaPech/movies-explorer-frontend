@@ -60,7 +60,7 @@ function Login({ loginUser }) {
             textReg={
                 <div className="form__register-container">
                     <p className="form__register-text">Ещё не зарегистрированы?</p>
-                    <Link to="login" className="form__register-link">Регистрация</Link>
+                    <Link to="/signup" className="form__register-link">Регистрация</Link>
                 </div>
             }>
             <div className="form__input-container">
