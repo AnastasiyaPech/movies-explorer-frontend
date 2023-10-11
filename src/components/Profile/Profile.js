@@ -24,10 +24,13 @@ function Profile({ logOut, onUpdateUser }) {
     useEffect(() => {
         if (nameError || emailError) {
             setFormValid(false);
-        } else {
+        } else if (name === currentUser.name && email === currentUser.email){
+            setFormValid(false);
+        }
+        else {
             setFormValid(true);
         }
-    }, [nameError, emailError])
+    }, [name, email, currentUser, nameError, emailError])
 
     function handleSetEdit() {
         setEdit(!isEdit);
@@ -58,6 +61,7 @@ function Profile({ logOut, onUpdateUser }) {
             email
         })
             .catch((err) => {
+                console.log(err)
                 setApiError(err);
             });
     }
@@ -73,13 +77,14 @@ function Profile({ logOut, onUpdateUser }) {
                         {nameError && <span className="form__input-error">{nameError}</span>}
                     </div>
                     <div className="profile__input-container">
-                        <input type="email" required value={email} onChange={handleEmailChange} className="profile__input" name="userUrl"
+                        <input type="email" required value={email} onChange={handleEmailChange} className="profile__input profile__input_change" name="userUrl"
                             placeholder="E-mail" />
                         {emailError && <span className="form__input-error">{emailError}</span>}
                     </div>
                     {apiError && <span className="form__api-error">{apiError}</span>}
                     {isEdit
-                        ? <button type="submit" className="profile__button-save">Сохранить</button>
+                        ? <button disabled={!formValid ? 'disabled' : ''} type="submit"
+                            className={`profile__button-save $${!formValid && "form__button_disabled"}`}>Сохранить</button>
                         : <>
                             <button type="submit" className="profile__button" onClick={handleSetEdit}>Редактировать</button>
                             <button type="submit" className="profile__button-exit" onClick={logOut}>Выйти из аккаунта</button>

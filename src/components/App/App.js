@@ -64,7 +64,6 @@ function App() {
   function handleLogin(email, password) {
     return authorize(email, password)
       .then((data) => {
-        console.log(data)
         const token = data.token;
         localStorage.setItem("jwt", token);
         setLoggedIn(true);
@@ -82,10 +81,9 @@ function App() {
     if (token) {
       checkToken(token)
         .then((res) => {
-          console.log(res)
           if (res) {
-            console.log(res)
             setLoggedIn(true);
+            // setCurrentUser(res);
             apiUsers.updateAuthorizationToken(token);
             navigate("/movies");
           }
@@ -98,16 +96,18 @@ function App() {
 
   //редактирование профиля
   function handleUpdateUser(data) {
+    console.log(data)
     return apiUsers.changeUserInfo(data)
       .then((data) => {
+        console.log(data)
         setCurrentUser(data)
         setIsInfoTooltipOpen(true);
         setIsSuccessInfoTooltipStatus(true);
 
       })
       // .catch(err => {
-      //   setIsInfoTooltipOpen(true);
-      //   setIsSuccessInfoTooltipStatus(false);
+      //   // setIsInfoTooltipOpen(true);
+      //   // setIsSuccessInfoTooltipStatus(false);
       //   console.log(err);
       // })
   }
