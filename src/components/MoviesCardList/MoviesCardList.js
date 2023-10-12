@@ -3,18 +3,22 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 // import initialMovies from '../../utils/constant';
 
 
-function MoviesCardList({list}) {
+
+function MoviesCardList({ movies }) {
+
+
     return (
         <div className="moviescardlist__container">
             {
-                list.map((data) => { 
-                    return <MoviesCard
-                     key={data.movieId} 
-                     name={data.nameRu} 
-                     link={data.image} 
+               movies.map((data) => { 
+                    return (<MoviesCard
+                     key={data.id} 
+                     nameRU={data.nameRU} 
+                     image={data.image} 
                      duration={data.duration} 
+                     trailerlink={data.trailerLink}
                      >
-                     </MoviesCard> 
+                     </MoviesCard>) 
                      
                 }) 
             }

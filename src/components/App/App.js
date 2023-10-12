@@ -12,6 +12,7 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../ProtectedRoute';
 import { register, authorize, checkToken } from '../../utils/auth';
 import apiUsers from '../../utils/MainApi';
+import apiMovies from '../../utils/MoviesApi';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import Header from '../Header/Header';
 
@@ -22,6 +23,11 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);   //статус пользователя залогинен или нет
   const [isSuccessInfoTooltipStatus, setIsSuccessInfoTooltipStatus] = useState(false); // уведомление об успешном редактировании профиля
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false); // открытие попапа-уведомления
+
+
+  const [movies, setMovies] = useState([]);
+
+
   const navigate = useNavigate();
   const location = useLocation().pathname;
 
@@ -45,6 +51,19 @@ function App() {
     }
   }, [loggedIn])
 
+  //запрос массива фильма
+  useEffect(() => {
+    apiMovies.getInitialMovies()
+      .then((data) => {
+        console.log(data);
+        setMovies(data)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, [])
+
+
   // регистрация
   function handleRegister(name, email, password) {
     return register(name, email, password)
@@ -60,7 +79,6 @@ function App() {
         const token = data.token;
         localStorage.setItem("jwt", token);
         setLoggedIn(true);
-        console.log(loggedIn)
         // setCurrentUser(data);
         apiUsers.updateAuthorizationToken(token);
         navigate("/movies");
@@ -74,7 +92,6 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            console.log(loggedIn)
             setCurrentUser(res);
             apiUsers.updateAuthorizationToken(token);
             navigate("/movies");
@@ -112,10 +129,10 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
-        {location === "/movies" && <Header loggedIn={loggedIn}/>}
-        {location === "/saved-movies" && <Header loggedIn={loggedIn}/>}
-        {location === "/profile" && <Header loggedIn={loggedIn}/>}
-        {location === "/" && <Header loggedIn={loggedIn}/>}
+        {location === "/movies" && <Header loggedIn={loggedIn} />}
+        {location === "/saved-movies" && <Header loggedIn={loggedIn} />}
+        {location === "/profile" && <Header loggedIn={loggedIn} />}
+        {location === "/" && <Header loggedIn={loggedIn} />}
         <Routes>
           <Route path="/signup" element={<Register registerUser={handleRegister} loggedIn={loggedIn} />} />
           <Route path="/signin" element={<Login loginUser={handleLogin} loggedIn={loggedIn} />} />
@@ -124,7 +141,7 @@ function App() {
               loggedIn={loggedIn} />} />
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={
-            <ProtectedRoute element={<Movies />}
+            <ProtectedRoute element={<Movies movies={movies} />}
               loggedIn={loggedIn} />} />
           <Route path="/saved-movies"
             element={

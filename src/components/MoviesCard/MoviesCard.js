@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-function MoviesCard({ name, link, duration }) {
+function MoviesCard({ nameRU, image, duration, trailerlink }) {
     const location = useLocation().pathname;
     const [isSave, setSave] = useState(false);
     function handleSetSave() {
@@ -11,7 +11,9 @@ function MoviesCard({ name, link, duration }) {
     return (
         <div className="moviescard__container">
             <div className="moviescard__place">
-                <img className="moviescard__image" alt={name} src={link} />
+                <a href={`${trailerlink}`} target='_blank' rel="noopener noreferrer" className="moviescard__link">
+                    <img className="moviescard__image" alt={`${nameRU}`}
+                        src={`https://api.nomoreparties.co/${image.url}`} /></a>
                 <button type="button"
                     className={`moviescard__button-save 
                     ${isSave && 'moviescard__button-save_saved'}
@@ -20,10 +22,11 @@ function MoviesCard({ name, link, duration }) {
                     Сохранить</button>
             </div>
             <div className="list__container">
-                <p className="list__text">{name}</p>
+                <p className="list__text">{`${nameRU}`}</p>
                 <p className="list__duration">{duration}</p>
             </div>
         </div>
+
     );
 }
 
