@@ -2,22 +2,22 @@ import React from 'react';
 import Footer from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-// import Preloader from '../Preloader/Preloader';
-// import initialMovies from '../../utils/constant';
 // import apiMovies from '../../utils/MoviesApi';
+import Preloader from '../Preloader/Preloader';
 
 
 
 
-function Movies({movies}) {
+function Movies({ movies, isLoading }) {
 
-   
+
     return (
         <>
             <div className="movies__container">
-                {/* <Preloader /> */}
                 <SearchForm />
-                <MoviesCardList movies={movies} />
+                {isLoading ?
+                    <Preloader />
+                    : <MoviesCardList movies={movies} />}
                 <button type="button" className="movies__button-more">Ещё</button>
             </div>
             <Footer />

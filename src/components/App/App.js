@@ -17,6 +17,7 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import Header from '../Header/Header';
 
 
+
 function App() {
 
   const [currentUser, setCurrentUser] = useState({});  //данные о пользователе
@@ -25,7 +26,8 @@ function App() {
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false); // открытие попапа-уведомления
 
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]); //первоначальный массив фильмов
+  const [isLoading, setisLoading] = useState(false); // стейт прелоадера
 
 
   const navigate = useNavigate();
@@ -53,6 +55,7 @@ function App() {
 
   //запрос массива фильма
   useEffect(() => {
+    setisLoading(true);
     apiMovies.getInitialMovies()
       .then((data) => {
         console.log(data);
@@ -60,6 +63,9 @@ function App() {
       })
       .catch(err => {
         console.log(err);
+      })
+      .finally(() => {
+        setisLoading(false);
       });
   }, [])
 
@@ -141,7 +147,7 @@ function App() {
               loggedIn={loggedIn} />} />
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={
-            <ProtectedRoute element={<Movies movies={movies} />}
+            <ProtectedRoute element={<Movies movies={movies} isLoading={isLoading} />}
               loggedIn={loggedIn} />} />
           <Route path="/saved-movies"
             element={
