@@ -2,19 +2,17 @@ import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-// import Preloader from '../Preloader/Preloader';
-import initialMoviesSaved from '../../utils/constant2'
+// import initialMoviesSaved from '../../utils/constant2'
 
 
 
 
-function SavedMovies() {
+function SavedMovies({movies}) {
     return (
         <>
             <div className="movies__container">
-                {/* <Preloader /> */}
                 <SearchForm />
-                <MoviesCardList list={initialMoviesSaved} />
+                { <MoviesCardList movies={movies} />}
             </div>
             <Footer />
         </>
@@ -22,3 +20,4 @@ function SavedMovies() {
 }
 
 export default SavedMovies;
+

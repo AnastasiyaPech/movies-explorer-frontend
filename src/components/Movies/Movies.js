@@ -8,7 +8,7 @@ import Preloader from '../Preloader/Preloader';
 
 
 
-function Movies({ movies, isLoading }) {
+function Movies({ movies, isLoading, onMovieSave, onMovieDelete }) {
 
 
     return (
@@ -17,7 +17,7 @@ function Movies({ movies, isLoading }) {
                 <SearchForm />
                 {isLoading ?
                     <Preloader />
-                    : <MoviesCardList movies={movies} />}
+                    : <MoviesCardList movies={movies} onMovieSave={onMovieSave} onMovieDelete={onMovieDelete}/>}
                 <button type="button" className="movies__button-more">Ещё</button>
             </div>
             <Footer />

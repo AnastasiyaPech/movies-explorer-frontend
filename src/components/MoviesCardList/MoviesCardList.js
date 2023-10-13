@@ -5,7 +5,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 
 
-function MoviesCardList({ movies }) {
+function MoviesCardList({ movies, onMovieSave, onMovieDelete }) {
 
 
     return (
@@ -14,17 +14,14 @@ function MoviesCardList({ movies }) {
                 movies.map((data) => {
                     return (<MoviesCard
                         key={data.id}
-                        nameRU={data.nameRU}
-                        image={data.image}
-                        duration={data.duration}
-                        trailerlink={data.trailerLink}
-                    >
-                    </MoviesCard>)
+                        data={data}
+                        onMovieSave={onMovieSave}
+                        onMovieDelete={onMovieDelete}
+                    />)
+                    // {/* </MoviesCard> */}
                 })
             }
         </div>
-
-
     );
 }
 

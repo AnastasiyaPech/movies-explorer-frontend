@@ -17,7 +17,6 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import Header from '../Header/Header';
 
 
-
 function App() {
 
   const [currentUser, setCurrentUser] = useState({});  //данные о пользователе
@@ -25,10 +24,9 @@ function App() {
   const [isSuccessInfoTooltipStatus, setIsSuccessInfoTooltipStatus] = useState(false); // уведомление об успешном редактировании профиля
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false); // открытие попапа-уведомления
 
-
   const [movies, setMovies] = useState([]); //первоначальный массив фильмов
   const [isLoading, setisLoading] = useState(false); // стейт прелоадера
-
+  const [isSaveMovies, setisSaveMovies] = useState([]); // массив сохраненных фильмов
 
   const navigate = useNavigate();
   const location = useLocation().pathname;
@@ -58,7 +56,6 @@ function App() {
     setisLoading(true);
     apiMovies.getInitialMovies()
       .then((data) => {
-        console.log(data);
         setMovies(data)
       })
       .catch(err => {
@@ -68,7 +65,6 @@ function App() {
         setisLoading(false);
       });
   }, [])
-
 
   // регистрация
   function handleRegister(name, email, password) {
@@ -109,6 +105,31 @@ function App() {
     }
   }
 
+  //добавление фильма в сохраненные
+  function handleAddMovie(data) {
+    return apiUsers.createSaveMovie(data)
+      .then((data) => {
+        setisSaveMovies([data, ...isSaveMovies]);
+        return data;
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+ 
+  //удаление фильма из сохраненных
+  function handleMovieDelete(id) {
+    apiUsers.deleteMovie(id)
+      .then((data) => {
+        setisSaveMovies((state) => {
+          return state.filter((item) => item._id !== id)
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   //редактирование профиля
   function handleUpdateUser(data) {
     return apiUsers.changeUserInfo(data)
@@ -147,11 +168,15 @@ function App() {
               loggedIn={loggedIn} />} />
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={
-            <ProtectedRoute element={<Movies movies={movies} isLoading={isLoading} />}
+            <ProtectedRoute element={<Movies
+              movies={movies}
+              isLoading={isLoading}
+              onMovieSave={handleAddMovie}
+              onMovieDelete={handleMovieDelete} />}
               loggedIn={loggedIn} />} />
           <Route path="/saved-movies"
             element={
-              <ProtectedRoute element={<SavedMovies />}
+              <ProtectedRoute element={<SavedMovies movies={movies} />}
                 loggedIn={loggedIn} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
