@@ -31,6 +31,12 @@ function MoviesCard({ data, onMovieSave, onMovieDelete }) {
         setSave(!isSave);
     }
 
+    function timeConvert(min) {
+        let hours = Math.floor(min / 60);
+        let minutes = min % 60;
+        return (`${hours} ч ${minutes} м`);
+    }
+
     return (
         <div className="moviescard__container">
             <div className="moviescard__place">
@@ -47,7 +53,7 @@ function MoviesCard({ data, onMovieSave, onMovieDelete }) {
             </div>
             <div className="list__container">
                 <p className="list__text">{`${data.nameRU}`}</p>
-                <p className="list__duration">{data.duration}</p>
+                <p className="list__duration">{timeConvert(data.duration)}</p>
             </div>
         </div>
 
