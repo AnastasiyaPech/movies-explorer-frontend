@@ -38,8 +38,8 @@ class Api {
         this._headers.authorization = `Bearer ${token}`
     };
 
-      // добавление нового фильма на страницу сохраненных
-      createSaveMovie(data) {
+    // добавление нового фильма на страницу сохраненных
+    createSaveMovie(data) {
         return fetch(`${this._baseUrl}/movies`, {
             method: 'POST',
             body: JSON.stringify({
@@ -58,6 +58,7 @@ class Api {
             headers: this._headers
         })
             .then(this._checkResponse)
+
     };
 
     // удаление фильма из сохраненных
@@ -69,6 +70,21 @@ class Api {
             .then(this._checkResponse)
     };
 
+    //запрос сохраненных фильмов
+    getSavedMovies() {
+        return fetch(`${this._baseUrl}/movies`, {
+            headers: this._headers,
+            method: 'GET',
+        })
+            .then(this._checkResponse)
+            .then((savedMovies) => {
+                return savedMovies
+                    .map((movie) => {
+                        movie.image = { url: movie.image.replace('https://api.nomoreparties.co/', '') };
+                        return movie;
+                    })
+            });
+    };
 }
 
 const apiUsers = new Api(

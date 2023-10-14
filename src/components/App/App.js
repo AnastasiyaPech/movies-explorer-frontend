@@ -26,7 +26,9 @@ function App() {
 
   const [movies, setMovies] = useState([]); //первоначальный массив фильмов
   const [isLoading, setisLoading] = useState(false); // стейт прелоадера
-  const [isSaveMovies, setisSaveMovies] = useState([]); // массив сохраненных фильмов
+  const [saveMovies, setisSaveMovies] = useState([]); // массив сохраненных фильмов
+  
+  const [getMovies, setGetMovies] = useState([]);
 
   const navigate = useNavigate();
   const location = useLocation().pathname;
@@ -56,7 +58,9 @@ function App() {
     setisLoading(true);
     apiMovies.getInitialMovies()
       .then((data) => {
+        console.log(data)
         setMovies(data)
+
       })
       .catch(err => {
         console.log(err);
@@ -65,6 +69,19 @@ function App() {
         setisLoading(false);
       });
   }, [])
+
+
+   // запрос сохраненного массива фильма
+   useEffect(() => {
+    apiUsers.getSavedMovies()
+      .then((data) => {
+        console.log(data)
+        setGetMovies(data)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [loggedIn])
 
   // регистрация
   function handleRegister(name, email, password) {
@@ -109,7 +126,7 @@ function App() {
   function handleAddMovie(data) {
     return apiUsers.createSaveMovie(data)
       .then((data) => {
-        setisSaveMovies([data, ...isSaveMovies]);
+        setisSaveMovies([data, ...saveMovies]);
         return data;
       })
       .catch(err => {
@@ -129,6 +146,7 @@ function App() {
         console.log(err);
       });
   }
+
 
   //редактирование профиля
   function handleUpdateUser(data) {
@@ -176,7 +194,7 @@ function App() {
               loggedIn={loggedIn} />} />
           <Route path="/saved-movies"
             element={
-              <ProtectedRoute element={<SavedMovies movies={movies} />}
+              <ProtectedRoute element={<SavedMovies getMovies={getMovies} />}
                 loggedIn={loggedIn} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

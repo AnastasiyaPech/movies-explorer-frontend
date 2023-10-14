@@ -21,7 +21,6 @@ class Api {
         })
             .then(this._checkResponse)
     };
-  
 }
 
 const apiMovies = new Api(

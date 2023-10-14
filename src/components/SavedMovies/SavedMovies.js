@@ -7,12 +7,12 @@ import Footer from '../Footer/Footer';
 
 
 
-function SavedMovies({movies}) {
+function SavedMovies({getMovies}) {
     return (
         <>
             <div className="movies__container">
                 <SearchForm />
-                { <MoviesCardList movies={movies} />}
+                { <MoviesCardList movies={getMovies} />}
             </div>
             <Footer />
         </>

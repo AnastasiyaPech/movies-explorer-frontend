@@ -5,7 +5,6 @@ function MoviesCard({ data, onMovieSave, onMovieDelete }) {
     const location = useLocation().pathname;
     const [isSave, setSave] = useState(false);
     const [id, setId] = useState('');
- 
 
     function handleChange() {
         if (!isSave) {
