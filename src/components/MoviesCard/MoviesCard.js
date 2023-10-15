@@ -48,7 +48,6 @@ function MoviesCard({ data, onMovieSave, onMovieDelete }) {
                     ${isSave && 'moviescard__button-save_saved'}
                     ${location === "/saved-movies" ? "moviescard__button-delete" : ''}`}
                     onClick={handleChange}>
-                    {/* onClick={handleSetSave}  */}
                     Сохранить</button>
             </div>
             <div className="list__container">

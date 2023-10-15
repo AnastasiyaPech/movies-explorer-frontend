@@ -18,7 +18,7 @@ function Movies({ movies, isLoading, onMovieSave, onMovieDelete }) {
                 {isLoading ?
                     <Preloader />
                     : <MoviesCardList movies={movies} onMovieSave={onMovieSave} onMovieDelete={onMovieDelete}/>}
-                <button type="button" className="movies__button-more">Ещё</button>
+                {/* <button type="button" className="movies__button-more">Ещё</button> */}
             </div>
             <Footer />
         </>
