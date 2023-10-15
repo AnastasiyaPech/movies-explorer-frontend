@@ -27,7 +27,7 @@ function App() {
   const [movies, setMovies] = useState([]); //первоначальный массив фильмов
   const [isLoading, setisLoading] = useState(false); // стейт прелоадера
   const [saveMovies, setisSaveMovies] = useState([]); // массив сохраненных фильмов
-  
+
   const [getMovies, setGetMovies] = useState([]);
 
   const navigate = useNavigate();
@@ -71,9 +71,10 @@ function App() {
   }, [])
 
 
-   // запрос сохраненного массива фильма
-   useEffect(() => {
-    apiUsers.getSavedMovies()
+  // запрос сохраненного массива фильма
+  useEffect(() => {
+    if (loggedIn) {
+      apiUsers.getSavedMovies()
       .then((data) => {
         console.log(data)
         setGetMovies(data)
@@ -81,6 +82,7 @@ function App() {
       .catch(err => {
         console.log(err);
       })
+    }
   }, [loggedIn])
 
   // регистрация
@@ -133,7 +135,7 @@ function App() {
         console.log(err);
       })
   }
- 
+
   //удаление фильма из сохраненных
   function handleMovieDelete(id) {
     apiUsers.deleteMovie(id)

@@ -1,42 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import useWindowSize from './useWindowSize';
+// import useWindowSize from './useWindowSize';
 
 
-function MoviesCardList({ movies, onMovieSave, onMovieDelete }) {
+function MoviesCardList({ movies, show, onMovieSave, onMovieDelete }) {
 
-    const width = window.innerWidth;
+    // const width = window.innerWidth;
 
-    const [defaultShow, defaultInc] = pickDefaultShow(width);
-    const [show, setShow] = useState(defaultShow);
-    const [inc, setInc] = useState(defaultInc);
+    // const [defaultShow, defaultInc] = pickDefaultShow(width);
+    // const [show, setShow] = useState(defaultShow);
+    // const [inc, setInc] = useState(defaultInc);
 
-    const windowSize = useWindowSize()
+    // const windowSize = useWindowSize()
 
-    let myResize = () => {
-        const [, newInc] = pickDefaultShow(windowSize.width);
-        setInc(newInc);
-        setShow(show + newInc - show % newInc);
-    };
+    // let myResize = () => {
+    //     const [, newInc] = pickDefaultShow(windowSize.width);
+    //     setInc(newInc);
+    //     setShow(show + newInc - show % newInc);
+    // };
 
 
-    useEffect(myResize, [windowSize]);
+    // useEffect(myResize, [windowSize]);
 
-    function pickDefaultShow(width) {
-        if (width > 1170) {
-            return [12, 3];
-        }
-        else if (width > 590) {
-            return [8, 2];
-        }
-        else {
-            return [5, 2];
-        }
-    }
+    // function pickDefaultShow(width) {
+    //     if (width > 1170) {
+    //         return [12, 3];
+    //     }
+    //     else if (width > 590) {
+    //         return [8, 2];
+    //     }
+    //     else {
+    //         return [5, 2];
+    //     }
+    // }
 
-    function handleShow() {
-        setShow(show + inc);
-    }
+    // function handleShow() {
+    //     setShow(show + inc);
+    // }
+
     // TODO опрокидывать из серчформ в мувис
     let searchString = "е".toLowerCase();
 
@@ -64,7 +65,7 @@ function MoviesCardList({ movies, onMovieSave, onMovieDelete }) {
                         })
                 }
             </div>
-            <button type="button" className="movies__button-more" onClick={handleShow}>Ещё</button>
+            {/* <button type="button" className="movies__button-more" onClick={handleShow}>Ещё</button> */}
         </>
     );
 }
