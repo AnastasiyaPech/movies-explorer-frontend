@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 function MoviesCard({ data, onMovieSave, onMovieDelete }) {
     const location = useLocation().pathname;
-    const [isSave, setSave] = useState(false);
-    const [id, setId] = useState('');
-
     function handleChange() {
-        if (!isSave) {
+        if (!data._id) {
             onMovieSave({
                 country: data.country,
                 director: data.director,
@@ -21,14 +18,9 @@ function MoviesCard({ data, onMovieSave, onMovieDelete }) {
                 nameRU: data.nameRU,
                 nameEN: data.nameEN
             })
-                .then((data) => {
-                    console.log(data)
-                    setId(data._id);
-                });
         } else {
-            onMovieDelete(id);
+            onMovieDelete(data._id);
         }
-        setSave(!isSave);
     }
 
     function timeConvert(min) {
@@ -45,7 +37,7 @@ function MoviesCard({ data, onMovieSave, onMovieDelete }) {
                         src={`https://api.nomoreparties.co/${data.image.url}`} /></a>
                 <button type="button"
                     className={`moviescard__button-save 
-                    ${isSave && 'moviescard__button-save_saved'}
+                    ${data._id && 'moviescard__button-save_saved'}
                     ${location === "/saved-movies" ? "moviescard__button-delete" : ''}`}
                     onClick={handleChange}>
                     Сохранить</button>

@@ -12,7 +12,6 @@ import React, { useEffect, useState } from 'react';
 import ProtectedRoute from '../ProtectedRoute';
 import { register, authorize, checkToken } from '../../utils/auth';
 import apiUsers from '../../utils/MainApi';
-import apiMovies from '../../utils/MoviesApi';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import Header from '../Header/Header';
 
@@ -24,11 +23,10 @@ function App() {
   const [isSuccessInfoTooltipStatus, setIsSuccessInfoTooltipStatus] = useState(false); // уведомление об успешном редактировании профиля
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false); // открытие попапа-уведомления
 
-  const [movies, setMovies] = useState([]); //первоначальный массив фильмов
-  const [isLoading, setisLoading] = useState(false); // стейт прелоадера
-  const [saveMovies, setisSaveMovies] = useState([]); // массив сохраненных фильмов
 
-  const [getMovies, setGetMovies] = useState([]);
+  const [saveMovies, setisSaveMovies] = useState([]); // массив сохраненных фильмов
+  const [messageError, setMessageError] = useState(''); // стейт ошибки
+  // const [getMovies, setGetMovies] = useState([]);
 
   const navigate = useNavigate();
   const location = useLocation().pathname;
@@ -53,35 +51,17 @@ function App() {
     }
   }, [loggedIn])
 
-  //запрос массива фильма
-  useEffect(() => {
-    setisLoading(true);
-    apiMovies.getInitialMovies()
-      .then((data) => {
-        console.log(data)
-        setMovies(data)
-
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .finally(() => {
-        setisLoading(false);
-      });
-  }, [])
-
-
   // запрос сохраненного массива фильма
   useEffect(() => {
     if (loggedIn) {
       apiUsers.getSavedMovies()
-      .then((data) => {
-        console.log(data)
-        setGetMovies(data)
-      })
-      .catch(err => {
-        console.log(err);
-      })
+        .then((data) => {
+          setisSaveMovies(data)
+        })
+        .catch(err => {
+          console.log(err);
+          setMessageError(err)
+        })
     }
   }, [loggedIn])
 
@@ -138,7 +118,7 @@ function App() {
 
   //удаление фильма из сохраненных
   function handleMovieDelete(id) {
-    apiUsers.deleteMovie(id)
+    return apiUsers.deleteMovie(id)
       .then((data) => {
         setisSaveMovies((state) => {
           return state.filter((item) => item._id !== id)
@@ -189,14 +169,15 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={
             <ProtectedRoute element={<Movies
-              movies={movies}
-              isLoading={isLoading}
+              savedMovies={saveMovies}
               onMovieSave={handleAddMovie}
               onMovieDelete={handleMovieDelete} />}
               loggedIn={loggedIn} />} />
           <Route path="/saved-movies"
             element={
-              <ProtectedRoute element={<SavedMovies getMovies={getMovies} />}
+              <ProtectedRoute element={<SavedMovies
+                getMovies={saveMovies}
+                onMovieDelete={handleMovieDelete} />}
                 loggedIn={loggedIn} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

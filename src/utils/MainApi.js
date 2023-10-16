@@ -58,6 +58,10 @@ class Api {
             headers: this._headers
         })
             .then(this._checkResponse)
+            .then((movie) => {
+                movie.image = { url: movie.image.replace('https://api.nomoreparties.co/', '') };
+                return movie;
+            });
 
     };
 

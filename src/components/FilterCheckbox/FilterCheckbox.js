@@ -2,15 +2,14 @@ import React from 'react';
 
 
 
-function FilterCheckbox() {
+function FilterCheckbox({ short }) {
     return (
 
-            <label className="checkbox__container">
-            <input type="checkbox" className="checkbox__input"/>
+        <label className="checkbox__container">
+            <input type="checkbox" defaultChecked={short} className="checkbox__input" />
             <span className="checkbox__custom"></span>
             <p className="checkbox__text">Короткометражки</p>
-            </label>
-            
+        </label>
     );
 }
 
