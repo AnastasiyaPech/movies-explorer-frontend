@@ -7,9 +7,9 @@ import useWindowSize from '../MoviesCardList/useWindowSize';
 import apiMovies from '../../utils/MoviesApi';
 
 function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
-    const width = window.innerWidth;
+    const [lastWidth, setLastWidth] = useState(window.innerWidth);
 
-    const [defaultShow, defaultInc] = pickDefaultShow(width);
+    const [defaultShow, defaultInc] = pickDefaultShow(lastWidth);
     const [show, setShow] = useState(defaultShow);
     const [inc, setInc] = useState(defaultInc);
 
@@ -66,6 +66,10 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
     function handleSearchMovie(e) {
         e.preventDefault();
 
+        const [resetShow, resetInc] = pickDefaultShow(lastWidth);
+        setShow(resetShow);
+        setInc(resetInc);
+
         const searchString = e.target[0].value;
         const shortValue = e.target[2].checked;
 
@@ -78,7 +82,7 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
             setShort(shortValue);
             setMessageError('');
         }
-
+        setisLoading(true);
         getBeatfilmMovies()
             .then(movies => {
                 console.log(movies)
@@ -96,7 +100,6 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
                 if (filterMovies) {
                     localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
                 }
-
                 localStorage.setItem('searchString', searchString)
                 localStorage.setItem('short', JSON.stringify(shortValue))
             })
@@ -107,7 +110,6 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
 
     function getBeatfilmMovies() {
         if (movies.length === 0) {
-            setisLoading(true)
             return apiMovies.getInitialMovies()
                 .then((beatfilmMovies) => {
                     setMovies(beatfilmMovies);
@@ -115,7 +117,7 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
                 })
                 .catch(err => {
                     console.log(err);
-                    setMessageError(err)               
+                    setMessageError(err)
                 })
         } else {
             return new Promise((resolve) => {
@@ -127,9 +129,15 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
     const windowSize = useWindowSize()
 
     let myResize = () => {
-        const [, newInc] = pickDefaultShow(windowSize.width);
-        setInc(newInc);
-        setShow(show + newInc - show % newInc);
+        if (windowSize.width !== lastWidth) {
+            console.log("resize");
+            const [, newInc] = pickDefaultShow(windowSize.width);
+            setInc(newInc);
+            if (show % newInc !== 0) {
+                setShow(show + newInc - show % newInc);
+            }
+            setLastWidth(windowSize.width)
+        }
     };
 
     useEffect(myResize, [windowSize]);
@@ -150,6 +158,7 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
         setShow(show + inc);
     }
 
+
     return (
         <>
             <div className="movies__container">
@@ -167,7 +176,9 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
                         onMovieDelete={onMovieDelete}
                         messageError={messageError}
                     />}
-                <button type="button" className="movies__button-more" onClick={handleShow}>Ещё</button>
+                {show < filteredMovies.length
+                    ? <button type="button" className="movies__button-more" onClick={handleShow}>Ещё</button>
+                    : ''}
             </div>
             <Footer />
         </>

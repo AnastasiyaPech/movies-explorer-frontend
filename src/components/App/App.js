@@ -19,7 +19,7 @@ import Header from '../Header/Header';
 function App() {
 
   const [currentUser, setCurrentUser] = useState({});  //данные о пользователе
-  const [loggedIn, setLoggedIn] = useState(false);   //статус пользователя залогинен или нет
+  const [loggedIn, setLoggedIn] = useState(null);   //статус пользователя залогинен или нет
   const [isSuccessInfoTooltipStatus, setIsSuccessInfoTooltipStatus] = useState(false); // уведомление об успешном редактировании профиля
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false); // открытие попапа-уведомления
 
@@ -95,12 +95,16 @@ function App() {
             setLoggedIn(true);
             setCurrentUser(res);
             apiUsers.updateAuthorizationToken(token);
-            navigate("/movies", { replace: true });
+            console.log("User logged in")
+            // navigate("/movies", { replace: true });
           }
         })
         .catch(err => {
           console.log(err);
         });
+    } else {
+      setLoggedIn(false);
+      navigate("/")
     }
   }
 
