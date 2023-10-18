@@ -1,17 +1,21 @@
-import React from 'react';
+import{ React } from 'react';
+import { Link } from 'react-router-dom';
 
-function Form({ logo, title, textReg, children, buttonTitle, onSubmit }) {
+function Form({ logo, title, textReg, children, onSubmit }) {
+
 
     return (
         <div className="form">
+            <Link to="/" >
             <img src={logo} className="form__logo" alt="логотип" />
+            </Link>
             <h2 className="form__text">{title}</h2>
             <form className="form__container" name="registration__form" onSubmit={onSubmit}>
                 {children}
-                <button type="submit" className="form__button" onSubmit={onSubmit}>{buttonTitle}</button>
             </form>
             {textReg}
         </div>
+
     );
 }
 

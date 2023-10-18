@@ -72,7 +72,7 @@
 .moviescard__image {
     border-radius: 10px;
     object-fit: cover;
-    max-height: 201px;
+    height: 201px;
     /* width: 360px; */
     width: 100%;
     cursor: pointer;

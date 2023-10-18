@@ -1,31 +1,22 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import logo from '../../images/logo.svg'
 import { Link, useLocation } from 'react-router-dom';
 import NavigationHeader from '../NavigationHeader/NavigationHeader';
 
-function Header() {
+function Header({ loggedIn }) {
 
     const location = useLocation().pathname;
 
-    const [loggedIn, setLoggedIn] = useState(true);
-    function handleSetLoggedIn() {
-        setLoggedIn(!loggedIn);
-    }
-
     return (
         <header className="header">
-            <div className={`header__container ${location === "/" ? "header__container_pink" : ''}`} onClick={handleSetLoggedIn}>
+            <div className={`header__container ${location === "/" ? "header__container_pink" : ''}`}>
                 <Link to="/" >
                     <img src={logo} className="header__logo" alt="логотип" />
                 </Link>
-                {loggedIn ? (
-                    <div className="header__navigation">
-                        {location === "/" && <NavigationHeader />}
-                        {location === "/movies" && <NavigationHeader />}
-                        {location === "/saved-movies" && <NavigationHeader />}
-                        {location === "/profile" && <NavigationHeader />}
-                    </div>
-                ) : (
+                <div className="header__navigation">
+                    {loggedIn && <NavigationHeader />}
+                </div>
+                {!loggedIn && (
                     < nav className="navigation__links-first">
                         <Link to="/signup" className="navigation__link-first">Регистрация</Link>
                         <Link to="/signin" className="navigation__link-first navigation__link-container">
@@ -35,7 +26,6 @@ function Header() {
                 )}
             </div>
         </header>
-
     );
 }
 

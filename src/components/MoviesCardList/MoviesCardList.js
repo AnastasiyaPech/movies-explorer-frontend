@@ -1,26 +1,27 @@
 import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
-// import initialMovies from '../../utils/constant';
 
 
-function MoviesCardList({list}) {
+function MoviesCardList({ movies, show, onMovieSave, onMovieDelete, messageError }) {
+
     return (
-        <div className="moviescardlist__container">
-            {
-                list.map((data) => { 
-                    return <MoviesCard
-                     key={data.movieId} 
-                     name={data.nameRu} 
-                     link={data.image} 
-                     duration={data.duration} 
-                     >
-                     </MoviesCard> 
-                     
-                }) 
-            }
-        </div>
-
-
+        <>
+            <div className="moviescardlist__container">
+            {messageError && <span className="form__api-error">{messageError}</span>}
+                {
+                    movies
+                        .slice(0, show)
+                        .map((data) => {
+                            return (<MoviesCard
+                                key={data.id || data._id}
+                                data={data}
+                                onMovieSave={onMovieSave}
+                                onMovieDelete={onMovieDelete}
+                            />)
+                        })
+                }
+            </div>
+        </>
     );
 }
 
