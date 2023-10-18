@@ -82,7 +82,7 @@ function App() {
         setLoggedIn(true);
         // setCurrentUser(data);
         apiUsers.updateAuthorizationToken(token);
-        navigate("/movies");
+        navigate("/movies", { replace: true });
       })
   }
 
@@ -95,7 +95,7 @@ function App() {
             setLoggedIn(true);
             setCurrentUser(res);
             apiUsers.updateAuthorizationToken(token);
-            navigate("/movies");
+            navigate("/movies", { replace: true });
           }
         })
         .catch(err => {
@@ -148,9 +148,9 @@ function App() {
   //удаление токена и редирект на главную
   function signOut() {
     localStorage.removeItem("jwt");
-    // navigate("/signup");
     setLoggedIn(false);
     navigate("/");
+    localStorage.clear();
   }
 
   return (

@@ -83,7 +83,6 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
             .then(movies => {
                 console.log(movies)
                 const filter = filterMovies(movies, searchString, shortValue)
-                console.log(filter)
                 if (filter.length === 0) {
                     setMessageError('Ничего не найдено')
                 }
@@ -108,6 +107,7 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
 
     function getBeatfilmMovies() {
         if (movies.length === 0) {
+            setisLoading(true)
             return apiMovies.getInitialMovies()
                 .then((beatfilmMovies) => {
                     setMovies(beatfilmMovies);
@@ -115,7 +115,7 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
                 })
                 .catch(err => {
                     console.log(err);
-                    setMessageError(err)               //ничего не найдено или произошла ошибка
+                    setMessageError(err)               
                 })
         } else {
             return new Promise((resolve) => {

@@ -32,9 +32,10 @@ function MoviesCard({ data, onMovieSave, onMovieDelete }) {
     return (
         <div className="moviescard__container">
             <div className="moviescard__place">
-                <a href={`${data.trailerlink}`} target='_blank' rel="noopener noreferrer" className="moviescard__link">
+                <a href={`${data.trailerLink}`} target='_blank' rel="noopener noreferrer" className="moviescard__link">
                     <img className="moviescard__image" alt={`${data.nameRU}`}
-                        src={`https://api.nomoreparties.co/${data.image.url}`} /></a>
+                        src={`https://api.nomoreparties.co/${data.image.url}`} />
+                </a>
                 <button type="button"
                     className={`moviescard__button-save 
                     ${data._id && 'moviescard__button-save_saved'}
