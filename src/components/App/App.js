@@ -26,7 +26,6 @@ function App() {
 
   const [saveMovies, setisSaveMovies] = useState([]); // массив сохраненных фильмов
   const [messageError, setMessageError] = useState(''); // стейт ошибки
-  // const [getMovies, setGetMovies] = useState([]);
 
   const navigate = useNavigate();
   const location = useLocation().pathname;
@@ -80,7 +79,6 @@ function App() {
         const token = data.token;
         localStorage.setItem("jwt", token);
         setLoggedIn(true);
-        // setCurrentUser(data);
         apiUsers.updateAuthorizationToken(token);
         navigate("/movies", { replace: true });
       })
@@ -95,8 +93,6 @@ function App() {
             setLoggedIn(true);
             setCurrentUser(res);
             apiUsers.updateAuthorizationToken(token);
-            console.log("User logged in")
-            // navigate("/movies", { replace: true });
           }
         })
         .catch(err => {

@@ -85,7 +85,6 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
         setisLoading(true);
         getBeatfilmMovies()
             .then(movies => {
-                console.log(movies)
                 const filter = filterMovies(movies, searchString, shortValue)
                 if (filter.length === 0) {
                     setMessageError('Ничего не найдено')
@@ -130,7 +129,6 @@ function Movies({ savedMovies, onMovieSave, onMovieDelete }) {
 
     let myResize = () => {
         if (windowSize.width !== lastWidth) {
-            console.log("resize");
             const [, newInc] = pickDefaultShow(windowSize.width);
             setInc(newInc);
             if (show % newInc !== 0) {
