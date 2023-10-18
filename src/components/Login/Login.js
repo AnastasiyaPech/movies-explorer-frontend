@@ -17,10 +17,11 @@ function Login({ loginUser }) {
     useEffect(() => {
         if (emailError || passwordError) {
             setFormValid(false);
-        } else {
+        }
+        else if (email && password) {
             setFormValid(true);
         }
-    }, [emailError, passwordError])
+    }, [emailError, passwordError, email, password])
 
     function handleEmailChange(e) {
         setEmail(e.target.value);

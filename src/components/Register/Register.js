@@ -19,10 +19,14 @@ function Register({ registerUser }) {
     useEffect(() => {
         if (nameError || emailError || passwordError) {
             setFormValid(false);
-        } else {
+        }
+        else if (name && email && password) {
             setFormValid(true);
         }
-    }, [nameError, emailError, passwordError])
+        else {
+            setFormValid(true);
+        }
+    }, [nameError, emailError, passwordError, name, email, password])
 
     function handleNameChange(e) {
         setName(e.target.value);
