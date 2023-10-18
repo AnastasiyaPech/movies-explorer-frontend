@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
 
-function SavedMovies({ getMovies, onMovieDelete, handleSearchMovie }) {
+function SavedMovies({ getMovies, onMovieDelete }) {
 
     const [messageError, setMessageError] = useState('');
 
@@ -21,7 +21,6 @@ function SavedMovies({ getMovies, onMovieDelete, handleSearchMovie }) {
         })
             .filter((movie) => {
                 if (short) {
-                    console.log(movie.duration)
                     return movie.duration < 40
                 } else {
                     return true;
@@ -37,7 +36,6 @@ function SavedMovies({ getMovies, onMovieDelete, handleSearchMovie }) {
 
         setSearch(searchString);
         setShort(shortValue);
-        console.log(shortValue)
         new Promise((resolve) => {
             resolve(getMovies)
         })
@@ -46,7 +44,6 @@ function SavedMovies({ getMovies, onMovieDelete, handleSearchMovie }) {
                 if (filter.length === 0) {
                     setMessageError('Ничего не найдено')
                 }
-                console.log(filter)
                 return filter;
             })
             .then(filteredMovies => {
@@ -55,6 +52,13 @@ function SavedMovies({ getMovies, onMovieDelete, handleSearchMovie }) {
             })
     }
 
+    function onMovieDeleteWithFilter(id) {
+        onMovieDelete(id).then(data => {
+            setFilteredMovies((state) => {
+                return state.filter((item) => item._id !== id)
+            });
+        })
+    }
 
 
     return (
@@ -66,7 +70,7 @@ function SavedMovies({ getMovies, onMovieDelete, handleSearchMovie }) {
                     short={short} />
                 {<MoviesCardList
                     movies={search || short ? filteredMovies : getMovies}
-                    onMovieDelete={onMovieDelete}
+                    onMovieDelete={onMovieDeleteWithFilter}
                     messageError={messageError} />}
             </div>
             <Footer />

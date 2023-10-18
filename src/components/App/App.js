@@ -122,7 +122,8 @@ function App() {
       .then((data) => {
         setisSaveMovies((state) => {
           return state.filter((item) => item._id !== id)
-        })
+        });
+        return data;
       })
       .catch(err => {
         console.log(err);

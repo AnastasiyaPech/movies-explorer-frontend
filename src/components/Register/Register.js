@@ -23,9 +23,6 @@ function Register({ registerUser }) {
         else if (name && email && password) {
             setFormValid(true);
         }
-        else {
-            setFormValid(true);
-        }
     }, [nameError, emailError, passwordError, name, email, password])
 
     function handleNameChange(e) {
